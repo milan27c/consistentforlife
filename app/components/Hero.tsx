@@ -112,7 +112,7 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/heronew/heronew1.png')",
+            backgroundImage: "url('/images/hero/1.png')",
             scale: scene1Scale,
             y: scene1Y,
             opacity: scene1Opacity,
@@ -133,7 +133,7 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/heronew/heronew2.png')",
+            backgroundImage: "url('/images/hero/2.png')",
             scale: scene2Scale,
             opacity: scene2Opacity,
           }}
@@ -273,7 +273,7 @@ function HeroStatic() {
     <section className="relative h-[100svh] w-full overflow-hidden bg-ink">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/heronew/heronew2.png')" }}
+        style={{ backgroundImage: "url('/images/hero/2.png')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
