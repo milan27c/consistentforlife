@@ -138,10 +138,10 @@ function SocialIcon({ label, href, icon }: { label: string; href: string; icon: 
       aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-300 transition-colors hover:bg-primary"
+      className="flex h-10 w-10 items-center justify-center rounded-full bg-ink transition-colors hover:bg-primary"
       title={label}
     >
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-white">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-warm-grey">
         {icon === "facebook" && (
           <path d="M14 9h2V6h-2c-1.66 0-3 1.34-3 3v2H9v3h2v6h3v-6h2.2l.8-3H14v-2c0-.28.22-.5.5-.5H14V9z" />
         )}
