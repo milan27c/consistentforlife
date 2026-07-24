@@ -62,13 +62,15 @@ export default async function ProductPage({
       <main className="flex-1 bg-warm-grey">
         {/* Hero: gallery + info */}
         <section className="px-6 pb-16 pt-16 sm:pt-20 md:px-10 lg:px-16">
-          <Breadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Products", href: "/products" },
-              { label: PRODUCT.breadcrumbLabel },
-            ]}
-          />
+          <div className="mt-4 md:mt-0">
+            <Breadcrumb
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Products", href: "/products" },
+                { label: PRODUCT.breadcrumbLabel },
+              ]}
+            />
+          </div>
 
           <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
             <ProductGallery images={PRODUCT.images} />

@@ -14,7 +14,9 @@ export default function ProductsPage() {
       <Header />
       <main className="flex-1 bg-warm-grey">
         <div className="px-6 pb-16 pt-16 sm:pt-20 md:px-10 lg:px-16">
-          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Products" }]} />
+          <div className="mt-4 md:mt-0">
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Products" }]} />
+          </div>
 
           <h1 className="mt-6 font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             All Products
