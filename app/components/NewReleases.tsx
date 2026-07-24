@@ -22,8 +22,8 @@ export default function NewReleases() {
   return (
     <section className="bg-warm-grey py-24 sm:py-28">
       {/* Heading + navigation */}
-      <div className="mb-10 flex items-end justify-between gap-4 px-6 md:px-10 lg:px-16">
-        <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+      <div className="mb-10 flex flex-col items-center gap-6 px-6 md:flex-row md:items-end md:justify-between md:px-10 lg:px-16">
+        <h2 className="text-center font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-left lg:text-5xl">
           Newly Released
         </h2>
         <div className="hidden shrink-0 items-center gap-3 md:flex">
@@ -44,10 +44,10 @@ export default function NewReleases() {
         </div>
       </div>
 
-      {/* Horizontal rail; scroll is bounded by the same gutter the heading/arrows use */}
+      {/* Vertical stack on mobile, horizontal scroll on desktop */}
       <div
         ref={railRef}
-        className="flex gap-6 overflow-x-auto pb-2 pl-6 pr-6 md:pl-10 md:pr-10 lg:pl-16 lg:pr-16 snap-x scroll-pl-6 scroll-pr-6 md:scroll-pl-10 md:scroll-pr-10 lg:scroll-pl-16 lg:scroll-pr-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex flex-col gap-6 px-6 md:gap-6 md:overflow-x-auto md:pb-2 md:pl-10 md:pr-10 lg:pl-16 lg:pr-16 md:flex-row md:snap-x md:scroll-pl-10 md:scroll-pr-10 lg:scroll-pl-16 lg:scroll-pr-16 md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
       >
         {NEW_RELEASES.map((item, i) => (
           <motion.article
@@ -57,7 +57,7 @@ export default function NewReleases() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: reduce ? 0 : i * 0.08 }}
-            className="group relative aspect-[2/1] w-[110vw] shrink-0 snap-start overflow-hidden rounded-3xl bg-neutral-800 sm:w-[109vw] md:w-[72%] lg:w-[66%]"
+            className="group relative aspect-[2/1] w-full overflow-hidden rounded-3xl bg-neutral-800 md:w-[72%] md:shrink-0 md:snap-start lg:w-[66%]"
           >
             <Image
               src={item.image}

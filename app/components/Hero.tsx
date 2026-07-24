@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -52,9 +52,81 @@ function scrollToNext() {
 }
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
   const reduce = useReducedMotion();
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (isMobile) return <HeroMobile />;
   if (reduce) return <HeroStatic />;
   return <HeroMotion />;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mobile hero — simpler, two-image transition                        */
+/* ------------------------------------------------------------------ */
+
+function HeroMobile() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"],
+  });
+
+  const p = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    mass: 0.4,
+  });
+
+  const scene1Opacity = useTransform(p, [0, 0.4], [1, 0.2]);
+  const scene2Opacity = useTransform(p, [0.4, 0.8], [0, 1]);
+  const titleOpacity = useTransform(p, [0.3, 0.5], [0, 1]);
+  const titleY = useTransform(p, [0.3, 0.6], [40, 0]);
+
+  return (
+    <section ref={ref} className="relative h-[240vh]">
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-ink">
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/hero/mobilehero1.png')",
+            opacity: scene1Opacity,
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/hero/mobilehero2.png')",
+            opacity: scene2Opacity,
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40"
+          style={{ opacity: 0.5 }}
+        />
+        <motion.div
+          className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center"
+          style={{
+            opacity: titleOpacity,
+            y: titleY,
+          }}
+        >
+          <h1 className="font-heading text-3xl font-semibold text-white">
+            Consistent For Life
+          </h1>
+          <p className="font-body text-base text-white/80">
+            Technology built to last
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
 
 /* ------------------------------------------------------------------ */
