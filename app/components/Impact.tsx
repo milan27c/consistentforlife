@@ -23,7 +23,7 @@ export default function Impact() {
           </div>
           <Link
             href="/impact"
-            className="group hidden sm:inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-ink/25 px-6 py-3 font-body text-sm font-semibold text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white sm:self-auto"
+            className="group hidden sm:inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-primary px-6 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c] sm:self-auto"
           >
             View more
             <ArrowRight
@@ -44,7 +44,7 @@ export default function Impact() {
         <div className="mt-10 flex justify-center sm:hidden">
           <Link
             href="/impact"
-            className="group inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 font-body text-sm font-semibold text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
           >
             View more
             <ArrowRight
