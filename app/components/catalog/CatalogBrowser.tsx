@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { SlidersHorizontal, X } from "lucide-react";
 import {
   CATALOG_PRODUCTS,
@@ -31,6 +32,13 @@ export default function CatalogBrowser() {
     setPriceRange([0, 1000000]);
   };
 
+  useEffect(() => {
+    document.body.style.overflow = filtersOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [filtersOpen]);
+
   const products = useMemo(() => {
     let list = CATALOG_PRODUCTS.filter((p) => {
       if (categories.length > 0) {
@@ -51,40 +59,9 @@ export default function CatalogBrowser() {
     return list;
   }, [categories, priceRange, sort]);
 
-  return (
-    <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
-      {/* Mobile filter toggle */}
-      <button
-        onClick={() => setFiltersOpen((v) => !v)}
-        className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-body text-sm font-semibold text-ink lg:hidden"
-      >
-        <SlidersHorizontal className="h-4 w-4" strokeWidth={1.75} />
-        Filters
-        {hasActiveFilters && (
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[0.65rem] text-white">
-            {categories.length + (priceRange[0] > 0 || priceRange[1] < 1000000 ? 1 : 0)}
-          </span>
-        )}
-      </button>
-
-      {/* Filter sidebar */}
-      <aside
-        className={`w-full shrink-0 lg:block lg:w-64 ${filtersOpen ? "block" : "hidden"}`}
-      >
-        <div className="flex items-center justify-between">
-          <h2 className="font-heading text-base font-semibold text-ink">Filters</h2>
-          {hasActiveFilters && (
-            <button
-              onClick={clearFilters}
-              className="flex items-center gap-1 font-body text-xs font-semibold text-neutral-500 hover:text-ink"
-            >
-              <X className="h-3.5 w-3.5" strokeWidth={2} />
-              Clear all
-            </button>
-          )}
-        </div>
-
-        <div className="mt-6">
+  const filterBody = (
+    <>
+      <div className="mt-6">
           <p className="font-body text-xs font-semibold uppercase tracking-wider text-neutral-500">Category</p>
           <div className="mt-4 flex flex-col gap-0">
             {CATEGORIES_WITH_SUBS.map((catGroup) => (
@@ -245,7 +222,103 @@ export default function CatalogBrowser() {
             </div>
           </div>
         </div>
+      </>
+    );
+
+  return (
+    <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+      {/* Mobile filter toggle */}
+      <button
+        onClick={() => setFiltersOpen(true)}
+        className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-body text-sm font-semibold text-ink lg:hidden"
+      >
+        <SlidersHorizontal className="h-4 w-4" strokeWidth={1.75} />
+        Filters
+        {hasActiveFilters && (
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[0.65rem] text-white">
+            {categories.length + (priceRange[0] > 0 || priceRange[1] < 1000000 ? 1 : 0)}
+          </span>
+        )}
+      </button>
+
+      {/* Filter sidebar (desktop) */}
+      <aside className="hidden w-64 shrink-0 lg:block">
+        <div className="flex items-center justify-between">
+          <h2 className="font-heading text-base font-semibold text-ink">Filters</h2>
+          {hasActiveFilters && (
+            <button
+              onClick={clearFilters}
+              className="flex items-center gap-1 font-body text-xs font-semibold text-neutral-500 hover:text-ink"
+            >
+              <X className="h-3.5 w-3.5" strokeWidth={2} />
+              Clear all
+            </button>
+          )}
+        </div>
+        {filterBody}
       </aside>
+
+      {/* Filter drawer (mobile) */}
+      <AnimatePresence>
+        {filtersOpen && (
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-[70] bg-black/40 lg:hidden"
+              onClick={() => setFiltersOpen(false)}
+            />
+            <motion.div
+              key="drawer"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 32, stiffness: 320 }}
+              className="fixed inset-x-0 bottom-0 z-[80] flex max-h-[85vh] flex-col rounded-t-3xl bg-white lg:hidden"
+            >
+              <div className="flex shrink-0 justify-center pt-3">
+                <div className="h-1 w-12 rounded-full bg-neutral-300" />
+              </div>
+
+              <div className="flex shrink-0 items-center justify-between border-b border-neutral-200 px-6 py-4">
+                <h2 className="font-heading text-base font-semibold text-ink">Filters</h2>
+                <div className="flex items-center gap-4">
+                  {hasActiveFilters && (
+                    <button
+                      onClick={clearFilters}
+                      className="flex items-center gap-1 font-body text-xs font-semibold text-neutral-500 hover:text-ink"
+                    >
+                      <X className="h-3.5 w-3.5" strokeWidth={2} />
+                      Clear all
+                    </button>
+                  )}
+                  <button
+                    aria-label="Close filters"
+                    onClick={() => setFiltersOpen(false)}
+                    className="flex h-8 w-8 items-center justify-center rounded-full text-ink transition-opacity hover:opacity-70"
+                  >
+                    <X className="h-4 w-4" strokeWidth={1.75} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex-1 overflow-y-auto px-6 py-2">{filterBody}</div>
+
+              <div className="shrink-0 border-t border-neutral-200 px-6 py-4">
+                <button
+                  onClick={() => setFiltersOpen(false)}
+                  className="w-full rounded-full bg-primary py-3.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
+                >
+                  Show {products.length} {products.length === 1 ? "result" : "results"}
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* Results */}
       <div className="min-w-0 flex-1">
