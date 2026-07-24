@@ -203,24 +203,24 @@ function HeroMotion() {
 
         {/* Scroll-to-begin hint */}
         <motion.div
-          className="absolute inset-x-0 bottom-10 flex flex-col items-center"
+          className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-3"
           style={{ opacity: hintOpacity }}
         >
-          <span className="mb-3 font-body text-[0.7rem] uppercase tracking-[0.35em] text-white/70">
-            A story of things that last
-          </span>
           <button
             onClick={scrollToNext}
             aria-label="Scroll to begin"
-            className="group flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-sm transition-colors hover:border-white/80 hover:bg-white/20"
+            className="group flex flex-col items-center gap-2"
           >
-            <motion.span
+            <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-              className="text-white"
+              className="flex items-center justify-center"
             >
-              <ChevronDown />
-            </motion.span>
+              <MouseIcon />
+            </motion.div>
+            <span className="font-body text-xs uppercase tracking-wider text-white/80">
+              Scroll down
+            </span>
           </button>
         </motion.div>
       </div>
@@ -315,6 +315,15 @@ function ArrowRight() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+function MouseIcon() {
+  return (
+    <svg width="24" height="36" viewBox="0 0 24 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+      <path d="M12 2C7.03 2 3 6.03 3 11v10c0 4.97 4.03 9 9 9s9-4.03 9-9V11c0-4.97-4.03-9-9-9z" />
+      <path d="M12 6v6" />
     </svg>
   );
 }
