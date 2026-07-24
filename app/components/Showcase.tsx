@@ -83,13 +83,13 @@ export default function Showcase() {
               const savings = mrp - product.price;
               return (
                 <article key={product.name} className="group flex flex-col overflow-hidden rounded-2xl bg-white">
-                  <div className="px-5 pt-5 pb-0">
-                    <h3 className="font-heading text-sm font-semibold leading-snug text-ink line-clamp-2 min-h-[2.2rem]" title={product.name}>
+                  <div className="px-4 pt-4 pb-0">
+                    <h3 className="font-heading text-xs font-semibold leading-snug text-ink line-clamp-2 min-h-[1.8rem]" title={product.name}>
                       {product.name}
                     </h3>
                   </div>
 
-                  <div className="relative aspect-square overflow-hidden bg-white px-6 py-3">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-white px-4">
                     <Image
                       src={product.image}
                       alt={product.name}
@@ -99,23 +99,23 @@ export default function Showcase() {
                     />
                   </div>
 
-                  <div className="mt-auto flex items-center justify-between gap-3 p-5 pt-3">
+                  <div className="mt-auto flex items-center justify-between gap-2 px-4 py-3">
                     <div>
-                      <p className="font-body text-[0.7rem] font-semibold text-primary">
+                      <p className="font-body text-[0.65rem] font-semibold text-primary">
                         Save {lkr(savings)}
                       </p>
-                      <div className="flex items-baseline gap-2">
-                        <span className="font-heading text-lg font-bold text-ink">
+                      <div className="flex items-baseline gap-1">
+                        <span className="font-heading text-base font-bold text-ink">
                           {lkr(product.price)}
                         </span>
-                        <span className="font-body text-xs text-neutral-400 line-through">
+                        <span className="font-body text-[0.7rem] text-neutral-400 line-through">
                           {lkr(mrp)}
                         </span>
                       </div>
                     </div>
                     <Link
                       href={`/products/${SAMPLE_PRODUCT_SLUG}`}
-                      className="shrink-0 rounded-xl bg-primary px-4 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
+                      className="shrink-0 rounded-lg bg-primary px-3 py-2 font-body text-xs font-semibold text-white transition-colors hover:bg-[#8c002c]"
                     >
                       Buy Now
                     </Link>
