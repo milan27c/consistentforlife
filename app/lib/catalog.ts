@@ -8,6 +8,7 @@ export type CatalogProduct = {
   rating: number;
   image: string;
   slug: string;
+  comingSoon?: boolean;
 };
 
 // Star ratings for the sort/filter demo. Keyed by product name since the
@@ -45,6 +46,7 @@ export const CATALOG_PRODUCTS: CatalogProduct[] = SHOWCASE.flatMap((category) =>
     rating: RATINGS[product.name] ?? 4.0,
     image: product.image,
     slug: SAMPLE_PRODUCT_SLUG,
+    comingSoon: product.comingSoon,
   }))
 );
 

@@ -2,6 +2,7 @@ export type ShowcaseProduct = {
   name: string;
   price: number; // LKR
   image: string;
+  comingSoon?: boolean;
 };
 
 export type ShowcaseCategory = {
@@ -36,10 +37,10 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tagline: "Rich, room filling audio for every moment.",
     banner: "/images/products-home-page/Audio/banner.png",
     products: [
-      { name: "Wireless Soundbar", price: 145000, image: PEXELS(356056) },
-      { name: "Over Ear Headphones", price: 65000, image: PEXELS(577769) },
-      { name: "Studio Monitor Headphones", price: 89000, image: PEXELS(1649771) },
-      { name: "Smart Home Speaker", price: 45000, image: PEXELS(4790268) },
+      { name: "XBOOM Entertainment System with Karaoke & DJ Effects", price: 0, image: "/images/products-home-page/Audio/products/1.png", comingSoon: true },
+      { name: "OK75 1000W RMS Karaoke System with DJ Wheel, DJ Pad & Multi-color Party Lighting", price: 165000, image: "/images/products-home-page/Audio/products/2.png" },
+      { name: "XBOOM Boom Blast", price: 55000, image: "/images/products-home-page/Audio/products/3.png" },
+      { name: "XBOOM Go PK7 Portable Speaker", price: 35000, image: "/images/products-home-page/Audio/products/4.png" },
     ],
   },
   {
