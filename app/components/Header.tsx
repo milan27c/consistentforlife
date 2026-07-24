@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { label: "Products", href: "/products" },
   { label: "About Us", href: "/#about" },
   { label: "AI Features", href: "#" },
-  { label: "Our Impact", href: "/impact" },
   { label: "Support", href: "#" },
 ];
 
@@ -62,7 +61,7 @@ export default function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className={`font-body text-base font-semibold transition-opacity hover:opacity-70 ${
+              className={`font-body text-sm font-semibold transition-opacity hover:opacity-70 ${
                 solid ? "text-neutral-700" : "text-white"
               }`}
             >
