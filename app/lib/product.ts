@@ -3,6 +3,7 @@ const PEXELS = (id: number) =>
 
 export type ProductDetail = {
   slug: string;
+  category: "tv" | "audio" | "appliances" | "ac" | "computing";
   badges: string[];
   name: string;
   breadcrumbLabel: string;
@@ -13,6 +14,7 @@ export type ProductDetail = {
   price: number;
   mrp: number;
   images: { src: string; alt: string }[];
+  sizeOptions?: { label: string; selected?: boolean }[];
   keyFeatures: string[];
   description: string;
   featureChips: { title: string; value: string; caption: string }[];
@@ -30,6 +32,7 @@ export const SAMPLE_PRODUCT_SLUG = "qned-ai-smart-tv";
 
 export const PRODUCT: ProductDetail = {
   slug: SAMPLE_PRODUCT_SLUG,
+  category: "tv",
   badges: ["Best Seller", "2026 Model"],
   name: "108cm (43) QNED AI QNED65 Mini LED 4K Smart TV 2026",
   breadcrumbLabel: "QNED AI Smart TV",
@@ -41,10 +44,15 @@ export const PRODUCT: ProductDetail = {
   mrp: 249000,
   images: [
     { src: "/images/products-home-page/TV/products/1.png", alt: "QNED AI Smart TV front view" },
-    { src: "/images/products-home-page/TV/products/1 all images/1B.png", alt: "QNED AI Smart TV with people watching" },
-    { src: "/images/products-home-page/TV/products/1 all images/1C.png", alt: "QNED AI Smart TV display detail" },
-    { src: "/images/products-home-page/TV/products/1 all images/1D.png", alt: "QNED AI Smart TV side view" },
-    { src: "/images/products-home-page/TV/products/1 all images/1E.png", alt: "QNED AI Smart TV in home setup" },
+    { src: "/images/products-home-page/TV/products/2.png", alt: "QNED AI Smart TV display detail" },
+    { src: "/images/products-home-page/TV/products/3.png", alt: "QNED AI Smart TV screen close up" },
+    { src: "/images/products-home-page/TV/products/4.png", alt: "QNED AI Smart TV alternate view" },
+    { src: "/images/products-home-page/TV/products/1 all images/1C.png", alt: "QNED AI Smart TV dimensions" },
+  ],
+  sizeOptions: [
+    { label: "164cm (65)" },
+    { label: "139cm (55)" },
+    { label: "108cm (43)", selected: true },
   ],
   keyFeatures: [
     "QNED65 Mini LED with 4K resolution and AI upscaling",
@@ -67,12 +75,12 @@ export const PRODUCT: ProductDetail = {
     {
       heading: "Breathtaking clarity at every angle",
       body: "QNED65 Mini LED technology delivers perfect blacks and brilliant highlights with thousands of independent dimming zones, creating lifelike contrast that draws you into every scene.",
-      image: "/images/products-home-page/TV/products/1 all images/1C.png",
+      image: "/images/products-home-page/TV/products/1.png",
     },
     {
       heading: "AI that understands great picture",
       body: "The α7 AI Processor Gen8 analyzes every frame in real-time, intelligently upscaling content and optimizing colors, contrast, and motion so even standard broadcasts look stunning.",
-      image: "/images/products-home-page/TV/products/1 all images/1D.png",
+      image: "/images/products-home-page/TV/products/3.png",
     },
   ],
   specs: [

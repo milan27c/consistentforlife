@@ -5,7 +5,9 @@ import Breadcrumb from "../../components/Breadcrumb";
 import ProductGallery from "../../components/product/ProductGallery";
 import ProductStickyBar, { type ProductTab } from "../../components/product/ProductStickyBar";
 import { StarRow } from "../../components/product/StarRow";
+import SizeSelector from "../../components/product/SizeSelector";
 import FeaturesSection from "../../components/product/FeaturesSection";
+import TVStorySection from "../../components/product/TVStorySection";
 import SpecsSection from "../../components/product/SpecsSection";
 import ReviewsSection from "../../components/product/ReviewsSection";
 import FaqSection from "../../components/product/FaqSection";
@@ -108,6 +110,12 @@ export default async function ProductPage({
                 </span>
               </div>
 
+              {PRODUCT.sizeOptions && (
+                <div className="mt-6">
+                  <SizeSelector options={PRODUCT.sizeOptions} />
+                </div>
+              )}
+
               <button className="mt-6 w-full rounded-full bg-primary py-4 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c] sm:w-auto sm:px-10">
                 Buy Now
               </button>
@@ -135,6 +143,11 @@ export default async function ProductPage({
         <div className="flex flex-col gap-20 px-6 py-16 md:px-10 lg:px-16">
           <section id="features" className="scroll-mt-36">
             <FeaturesSection chips={PRODUCT.featureChips} highlights={PRODUCT.featureHighlights} />
+            {PRODUCT.category === "tv" && (
+              <div className="mt-16">
+                <TVStorySection />
+              </div>
+            )}
           </section>
 
           <section id="specs" className="scroll-mt-36">
