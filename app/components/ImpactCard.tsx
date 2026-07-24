@@ -30,10 +30,10 @@ export default function ImpactCard({
           className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </div>
-      <h3 className="mt-5 font-heading text-xl font-semibold text-ink">
+      <h3 className="mt-5 text-center sm:text-left font-heading text-xl font-semibold text-ink">
         {project.title}
       </h3>
-      <p className="mt-2 font-body text-sm leading-relaxed text-neutral-600">
+      <p className="mt-2 text-center sm:text-left font-body text-sm leading-relaxed text-neutral-600">
         {project.blurb}
       </p>
     </motion.article>

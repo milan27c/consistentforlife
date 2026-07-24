@@ -15,7 +15,7 @@ export default function Showcase() {
     <section id="showcase" className="bg-warm-grey py-24 sm:py-28">
       {/* Tabs */}
       <div className="px-6 md:px-10 lg:px-16">
-        <div className="flex gap-7 overflow-x-auto pb-1 sm:gap-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex flex-wrap justify-center gap-7 pb-1 sm:gap-10 md:justify-start md:flex-nowrap md:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SHOWCASE.map((c, i) => (
             <button
               key={c.tab}
@@ -46,8 +46,8 @@ export default function Showcase() {
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         {/* Heading */}
-        <div className="mt-10 px-6 md:px-10 lg:px-16">
-          <h2 className="max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        <div className="mt-10 px-6 text-center md:text-left md:px-10 lg:px-16">
+          <h2 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
             {category.heading}
           </h2>
         </div>

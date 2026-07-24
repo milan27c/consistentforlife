@@ -9,7 +9,7 @@ export default function Newsletter() {
 
   return (
     <section className="bg-warm-grey px-6 py-24 sm:py-28 md:px-10 lg:px-16">
-      <h2 className="mb-10 font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
+      <h2 className="mb-10 text-center md:text-left font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         Latest News
       </h2>
 
