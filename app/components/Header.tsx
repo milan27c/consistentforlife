@@ -9,7 +9,7 @@ import { Search, ShoppingBag, Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
-  { label: "About Us", href: "/#about" },
+  { label: "Our Impact", href: "/#impact" },
   { label: "AI Features", href: "#" },
   { label: "Support", href: "#" },
 ];
@@ -25,9 +25,9 @@ export default function Header() {
     // Non-home pages have no dark hero, so the header stays solid (initial state).
     if (!isHome) return;
     const onScroll = () => {
-      // Hero is the sticky scroll track; the About section starts right after it.
+      // Hero is the sticky scroll track; the Impact section starts right after it.
       const heroEnd =
-        document.getElementById("about")?.offsetTop ?? window.innerHeight * 3;
+        document.getElementById("impact")?.offsetTop ?? window.innerHeight * 3;
       setSolid(window.scrollY > heroEnd - 72);
     };
     window.addEventListener("scroll", onScroll, { passive: true });

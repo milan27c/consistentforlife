@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import About from "./components/About";
 import NewReleases from "./components/NewReleases";
 import FeaturedProducts from "./components/FeaturedProducts";
 import Showcase from "./components/Showcase";
@@ -15,8 +14,8 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
 
-        {/* About — what Consistent For Life is */}
-        <About />
+        {/* Our Impact — community projects */}
+        <Impact />
 
         {/* New releases */}
         <NewReleases />
@@ -26,9 +25,6 @@ export default function Home() {
 
         {/* Category showcase with tabs */}
         <Showcase />
-
-        {/* Our Impact — community projects */}
-        <Impact />
 
         {/* Latest news, bento grid */}
         <Newsletter />
