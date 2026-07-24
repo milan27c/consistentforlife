@@ -22,7 +22,7 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tab: "TV",
     heading: "Every story, in breathtaking clarity",
     tagline: "Cinematic picture, right in your living room.",
-    banner: PEXELS(7991579),
+    banner: "/images/products-home-page/TV/banner.png",
     products: [
       { name: '65" OLED Smart Television', price: 895000, image: "/images/about/tv.png" },
       { name: '55" QLED 4K Television', price: 545000, image: PEXELS(6782581) },
@@ -34,7 +34,7 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tab: "Audio",
     heading: "Sound that moves the whole room",
     tagline: "Rich, room filling audio for every moment.",
-    banner: PEXELS(3784221),
+    banner: "/images/products-home-page/Audio/banner.png",
     products: [
       { name: "Wireless Soundbar", price: 145000, image: PEXELS(356056) },
       { name: "Over Ear Headphones", price: 65000, image: PEXELS(577769) },
@@ -46,7 +46,7 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tab: "Appliances",
     heading: "Built for the heart of the home",
     tagline: "Dependable helpers for every single day.",
-    banner: PEXELS(2724749),
+    banner: "/images/products-home-page/Appliances/banner.png",
     products: [
       { name: "Side by Side Refrigerator", price: 545000, image: PEXELS(373548) },
       { name: "Multi Door Refrigerator", price: 625000, image: "/images/about/refrigrator.png" },
@@ -58,7 +58,7 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tab: "Air Conditioning",
     heading: "Comfort in every season",
     tagline: "The perfect climate, quietly maintained.",
-    banner: PEXELS(1571460),
+    banner: "/images/products-home-page/AC/ac.png",
     products: [
       { name: "Dual Inverter Split AC", price: 235000, image: "/images/about/ac.png" },
       { name: "Wall Mounted Inverter AC", price: 195000, image: PEXELS(3964704) },
@@ -70,7 +70,7 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tab: "Computing",
     heading: "Power for work and play",
     tagline: "Tools that keep pace with your ideas.",
-    banner: PEXELS(574071),
+    banner: "/images/products-home-page/Computing/banner.png",
     products: [
       { name: '27" 4K Monitor', price: 165000, image: PEXELS(3316920) },
       { name: "Ultrabook Laptop", price: 285000, image: PEXELS(1181244) },
