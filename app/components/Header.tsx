@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, ShoppingBag, MoreVertical, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { Search, ShoppingBag, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -39,6 +40,13 @@ export default function Header() {
       window.removeEventListener("resize", onScroll);
     };
   }, [isHome]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <header
@@ -85,48 +93,70 @@ export default function Header() {
           >
             <ShoppingBag className="h-5 w-5" strokeWidth={1.75} />
           </button>
-          <div className="relative">
-            <button
-              aria-label="More options"
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
-            >
-              {menuOpen ? (
-                <X className="h-5 w-5" strokeWidth={1.75} />
-              ) : (
-                <MoreVertical className="h-5 w-5" strokeWidth={1.75} />
-              )}
-            </button>
-
-            {/* Dropdown menu */}
-            {menuOpen && (
-              <div className={`absolute right-0 top-12 rounded-lg border border-neutral-200 bg-white shadow-lg ${solid ? "" : "border-white/20 bg-ink/95 backdrop-blur"}`}>
-                <a
-                  href="#"
-                  className={`block px-4 py-2.5 font-body text-sm font-medium transition-colors hover:bg-neutral-100 first:rounded-t-lg ${solid ? "text-ink hover:bg-neutral-100" : "text-white hover:bg-white/10"}`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Account
-                </a>
-                <a
-                  href="#"
-                  className={`block px-4 py-2.5 font-body text-sm font-medium transition-colors hover:bg-neutral-100 ${solid ? "text-ink hover:bg-neutral-100" : "text-white hover:bg-white/10"}`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Wishlist
-                </a>
-                <a
-                  href="#"
-                  className={`block px-4 py-2.5 font-body text-sm font-medium transition-colors hover:bg-neutral-100 last:rounded-b-lg ${solid ? "text-ink hover:bg-neutral-100" : "text-white hover:bg-white/10"}`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Settings
-                </a>
-              </div>
-            )}
-          </div>
+          <button
+            aria-label="Menu"
+            onClick={() => setMenuOpen(true)}
+            className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
+          >
+            <Menu className="h-5 w-5" strokeWidth={1.75} />
+          </button>
         </div>
       </div>
+
+      {/* Full-screen menu overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed inset-0 z-[60] flex flex-col bg-ink text-white"
+          >
+            <div className="flex items-center justify-between px-6 py-4 md:px-10 lg:px-16">
+              <Link
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                className="font-heading text-lg font-semibold tracking-tight"
+              >
+                Consistent For Life
+              </Link>
+              <button
+                aria-label="Close menu"
+                onClick={() => setMenuOpen(false)}
+                className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
+              >
+                <X className="h-5 w-5" strokeWidth={1.75} />
+              </button>
+            </div>
+
+            <nav className="flex flex-1 flex-col items-center justify-center gap-2 px-6">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.05 + i * 0.05, ease: "easeOut" }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-3 text-center font-heading text-3xl font-semibold tracking-tight text-white transition-opacity hover:opacity-70 sm:text-4xl"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            <div className="flex items-center justify-center gap-6 px-6 py-8 font-body text-sm text-white/60">
+              <a href="#" className="transition-opacity hover:opacity-70">Account</a>
+              <a href="#" className="transition-opacity hover:opacity-70">Wishlist</a>
+              <a href="#" className="transition-opacity hover:opacity-70">Settings</a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
