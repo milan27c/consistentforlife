@@ -15,7 +15,7 @@ export default function Showcase() {
     <section id="showcase" className="bg-warm-grey py-16 sm:py-24 md:py-28">
       {/* Tabs */}
       <div className="px-6 md:px-10 lg:px-16">
-        <div className="flex gap-6 pb-1 sm:gap-7 md:gap-10 md:overflow-x-auto md:flex-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex flex-wrap gap-6 pb-1 sm:gap-7 md:gap-10 md:flex-nowrap md:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SHOWCASE.map((c, i) => (
             <button
               key={c.tab}
