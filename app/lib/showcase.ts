@@ -73,10 +73,10 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tagline: "Tools that keep pace with your ideas.",
     banner: "/images/products-home-page/Computing/banner.png",
     products: [
-      { name: '27" 4K Monitor', price: 165000, image: PEXELS(3316920) },
-      { name: "Ultrabook Laptop", price: 285000, image: PEXELS(1181244) },
-      { name: "Gaming Desktop", price: 425000, image: PEXELS(3165335) },
-      { name: "Performance Workstation", price: 545000, image: PEXELS(2588757) },
+      { name: "34\" Curved UltraWide™ IPS Display Monitor 21:9", price: 195000, image: "/images/products-home-page/Computing/products/1.png" },
+      { name: "27\" Full HD IPS Monitor with Radeon FreeSync™", price: 45000, image: "/images/products-home-page/Computing/products/2.png" },
+      { name: "24\" Class IPS Gaming Monitor (23.8\" Diagonal)", price: 55000, image: "/images/products-home-page/Computing/products/3.png" },
+      { name: "UltraGear™ 27\" FHD IPS Gaming Monitor with AMD FreeSync™ Premium", price: 85000, image: "/images/products-home-page/Computing/products/4.png" },
     ],
   },
 ];

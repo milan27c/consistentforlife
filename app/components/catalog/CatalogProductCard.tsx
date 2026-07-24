@@ -35,7 +35,7 @@ export default function CatalogProductCard({ product }: { product: CatalogProduc
         />
       </div>
 
-      <div className="mt-auto flex flex-col gap-3 px-4 py-3">
+      <div className="mt-auto flex flex-col gap-3 px-4 py-3 @[220px]:flex-row @[220px]:items-center @[220px]:justify-between">
         {product.comingSoon ? (
           <p className="font-body text-xs font-semibold text-neutral-500">
             Pricing announced at launch
@@ -52,7 +52,7 @@ export default function CatalogProductCard({ product }: { product: CatalogProduc
           </div>
         )}
         <div
-          className={`pointer-events-none self-start rounded-lg px-3 py-2 font-body text-xs font-semibold ${
+          className={`pointer-events-none self-start rounded-lg px-2.5 py-1.5 font-body text-xs font-semibold @[220px]:shrink-0 ${
             product.comingSoon ? "bg-neutral-100 text-neutral-500" : "bg-primary text-white"
           }`}
         >
@@ -64,14 +64,16 @@ export default function CatalogProductCard({ product }: { product: CatalogProduc
 
   if (product.comingSoon) {
     return (
-      <div className="group flex flex-col overflow-hidden rounded-2xl bg-white">{cardInner}</div>
+      <div className="group @container flex flex-col overflow-hidden rounded-2xl bg-white">
+        {cardInner}
+      </div>
     );
   }
 
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl bg-white transition-shadow hover:shadow-md"
+      className="group @container flex flex-col overflow-hidden rounded-2xl bg-white transition-shadow hover:shadow-md"
     >
       {cardInner}
     </Link>
