@@ -67,28 +67,12 @@ export default function CatalogBrowser() {
         )}
       </button>
 
-      {/* Backdrop for mobile drawer */}
-      {filtersOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/40 lg:hidden"
-          onClick={() => setFiltersOpen(false)}
-        />
-      )}
-
       {/* Filter sidebar */}
       <aside
-        className={`w-full shrink-0 lg:static lg:block lg:w-64 fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl max-h-[90vh] overflow-y-auto transition-transform duration-300 lg:transition-none ${
-          filtersOpen ? "translate-y-0" : "translate-y-full lg:translate-y-0"
-        }`}
+        className={`w-full shrink-0 lg:block lg:w-64 ${filtersOpen ? "block" : "hidden"}`}
       >
-        {/* Drag handle for mobile drawer */}
-        <div className="sticky top-0 flex flex-col items-center justify-center border-b border-neutral-200 bg-white rounded-t-3xl py-3 lg:hidden">
-          <div className="h-1 w-12 rounded-full bg-neutral-300" />
-        </div>
-
-        <div className="px-6 py-6 lg:px-0 lg:py-0">
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading text-base font-semibold text-ink">Filters</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="font-heading text-base font-semibold text-ink">Filters</h2>
           {hasActiveFilters && (
             <button
               onClick={clearFilters}
@@ -260,7 +244,6 @@ export default function CatalogBrowser() {
               LKR {priceRange[0].toLocaleString()} – LKR {priceRange[1].toLocaleString()}
             </div>
           </div>
-        </div>
         </div>
       </aside>
 

@@ -44,7 +44,7 @@ const LEGAL_LINKS = ["Site map", "Privacy Policy", "Cookie Policy", "Cookie Sett
 
 export default function Footer() {
   return (
-    <footer className="bg-[#E0D5C7]">
+    <footer className="bg-[#E5E0D6]">
 
       {/* Link columns */}
       <div className="grid grid-cols-2 gap-x-6 gap-y-10 border-b border-neutral-300 px-6 py-14 sm:grid-cols-3 md:px-10 lg:grid-cols-6 lg:px-16">

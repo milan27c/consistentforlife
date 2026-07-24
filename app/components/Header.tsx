@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, ShoppingBag, Menu, X } from "lucide-react";
+import { Search, ShoppingBag } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -18,7 +18,6 @@ export default function Header() {
   // Only the homepage has the dark hero to sit transparently over.
   const isHome = pathname === "/";
   const [solid, setSolid] = useState(!isHome);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Non-home pages have no dark hero, so the header stays solid (initial state).
@@ -85,37 +84,8 @@ export default function Header() {
           >
             <ShoppingBag className="h-5 w-5" strokeWidth={1.75} />
           </button>
-          <button
-            aria-label="Menu"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
-          >
-            {menuOpen ? (
-              <X className="h-5 w-5" strokeWidth={1.75} />
-            ) : (
-              <Menu className="h-5 w-5" strokeWidth={1.75} />
-            )}
-          </button>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <nav className="md:hidden border-t border-neutral-200 bg-surface">
-          <div className="flex flex-col px-6 py-4">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="py-3 font-body text-sm font-semibold text-neutral-700 transition-opacity hover:opacity-70"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
-      )}
     </header>
   );
 }

@@ -191,7 +191,7 @@ function HeroMobile() {
           </motion.h1>
 
           <motion.p
-            className="mt-4 max-w-xs px-4 font-body text-sm leading-relaxed text-white/85"
+            className="mt-4 max-w-sm font-body text-sm leading-relaxed text-white/85"
             style={{ opacity: metaOpacity, y: metaY }}
           >
             The same trust, carried from one generation to the next, in homes
