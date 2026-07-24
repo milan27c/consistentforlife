@@ -103,12 +103,12 @@ export default function Showcase() {
                     />
                   </div>
 
-                  <div className="mt-auto flex items-center justify-between gap-2 px-4 py-3">
+                  <div className="mt-auto flex flex-col gap-3 px-4 py-3">
                     <div>
                       <p className="font-body text-[0.65rem] font-semibold text-primary">
                         Save {lkr(savings)}
                       </p>
-                      <div className="flex items-baseline gap-1">
+                      <div className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
                         <span className="font-heading text-base font-bold text-ink">
                           {lkr(product.price)}
                         </span>
@@ -117,7 +117,7 @@ export default function Showcase() {
                         </span>
                       </div>
                     </div>
-                    <div className="pointer-events-none shrink-0 rounded-lg bg-primary px-3 py-2 font-body text-xs font-semibold text-white">
+                    <div className="pointer-events-none self-start rounded-lg bg-primary px-3 py-2 font-body text-xs font-semibold text-white">
                       Buy Now
                     </div>
                   </div>
