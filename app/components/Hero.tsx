@@ -112,7 +112,7 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/1.png')",
+            backgroundImage: "url('/images/hero/pathum1.png')",
             scale: scene1Scale,
             y: scene1Y,
             opacity: scene1Opacity,
@@ -133,7 +133,7 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/2.png')",
+            backgroundImage: "url('/images/hero/pathum2.png')",
             scale: scene2Scale,
             opacity: scene2Opacity,
           }}
