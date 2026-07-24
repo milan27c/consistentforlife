@@ -36,11 +36,8 @@ export default function Newsletter() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-              <p className="font-body text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/75">
-                {item.tag}
-              </p>
               <h3
-                className={`mt-2 font-heading font-semibold leading-snug text-white ${
+                className={`font-heading font-semibold leading-snug text-white ${
                   item.large ? "text-xl sm:text-2xl lg:text-3xl" : "text-base sm:text-lg"
                 }`}
               >
