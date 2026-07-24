@@ -200,7 +200,7 @@ function HeroMobile() {
 
           <motion.a
             href="#products"
-            className="pointer-events-auto mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-body text-xs font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.03] hover:bg-[#8c002c]"
+            className="pointer-events-auto mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-body text-xs font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.03] hover:bg-[#8c002c]"
             style={{ opacity: metaOpacity, y: metaY }}
           >
             Explore Products
@@ -371,7 +371,7 @@ function HeroMotion() {
 
           <motion.a
             href="#products"
-            className="pointer-events-auto mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-body text-sm font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.03] hover:bg-[#8c002c]"
+            className="pointer-events-auto mt-8 inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 font-body text-sm font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.03] hover:bg-[#8c002c]"
             style={{ opacity: metaOpacity, y: metaY }}
           >
             Explore Products
@@ -467,7 +467,7 @@ function HeroStatic() {
         </p>
         <a
           href="#products"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-body text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#8c002c]"
+          className="inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 font-body text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#8c002c]"
         >
           Explore Products
           <ArrowRight />

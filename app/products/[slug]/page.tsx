@@ -118,7 +118,7 @@ export default async function ProductPage({
                 </div>
               )}
 
-              <button className="mt-6 w-full rounded-full bg-primary py-4 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c] sm:w-auto sm:px-10">
+              <button className="mt-6 w-full rounded-2xl bg-primary py-4 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c] sm:w-auto sm:px-10">
                 Where to Buy
               </button>
 

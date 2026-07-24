@@ -230,7 +230,7 @@ export default function CatalogBrowser() {
       {/* Mobile filter toggle */}
       <button
         onClick={() => setFiltersOpen(true)}
-        className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-body text-sm font-semibold text-ink lg:hidden"
+        className="inline-flex w-fit items-center gap-2 rounded-lg border border-ink/20 px-5 py-2.5 font-body text-sm font-semibold text-ink lg:hidden"
       >
         <SlidersHorizontal className="h-4 w-4" strokeWidth={1.75} />
         Filters
@@ -310,7 +310,7 @@ export default function CatalogBrowser() {
               <div className="shrink-0 border-t border-neutral-200 px-6 py-4">
                 <button
                   onClick={() => setFiltersOpen(false)}
-                  className="w-full rounded-full bg-primary py-3.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
+                  className="w-full rounded-xl bg-primary py-3.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
                 >
                   Show {products.length} {products.length === 1 ? "result" : "results"}
                 </button>
@@ -358,7 +358,7 @@ export default function CatalogBrowser() {
             </p>
             <button
               onClick={clearFilters}
-              className="rounded-full bg-primary px-6 py-2.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
+              className="rounded-lg bg-primary px-6 py-2.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
             >
               Clear filters
             </button>

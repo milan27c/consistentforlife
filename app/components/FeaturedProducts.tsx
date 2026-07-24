@@ -187,7 +187,7 @@ export default function FeaturedProducts() {
         <div className="mt-8 flex justify-center px-6 md:hidden">
           <button
             onClick={() => setExpanded(true)}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
           >
             Show more
             <ChevronDown className="h-4 w-4" strokeWidth={2} />
