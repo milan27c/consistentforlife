@@ -111,7 +111,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-[60] flex flex-col bg-ink text-white"
+            className="fixed inset-0 z-[60] flex flex-col bg-surface text-ink"
           >
             <div className="flex items-center justify-between px-6 py-4 md:px-10 lg:px-16">
               <Link
@@ -141,7 +141,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block py-3 text-center font-heading text-3xl font-semibold tracking-tight text-white transition-opacity hover:opacity-70 sm:text-4xl"
+                    className="block py-3 text-center font-heading text-3xl font-semibold tracking-tight text-ink transition-opacity hover:opacity-70 sm:text-4xl"
                   >
                     {link.label}
                   </Link>
@@ -149,7 +149,7 @@ export default function Header() {
               ))}
             </nav>
 
-            <div className="flex items-center justify-center gap-6 px-6 py-8 font-body text-sm text-white/60">
+            <div className="flex items-center justify-center gap-6 border-t border-neutral-200 px-6 py-8 font-body text-sm text-neutral-500">
               <a href="#" className="transition-opacity hover:opacity-70">Account</a>
               <a href="#" className="transition-opacity hover:opacity-70">Wishlist</a>
               <a href="#" className="transition-opacity hover:opacity-70">Settings</a>
