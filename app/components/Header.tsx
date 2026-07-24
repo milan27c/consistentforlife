@@ -6,8 +6,10 @@ import { usePathname } from "next/navigation";
 import { Search, ShoppingBag } from "lucide-react";
 
 const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
-  { label: "Innovation", href: "/#about" },
+  { label: "About Us", href: "/#about" },
+  { label: "AI Features", href: "#" },
   { label: "Our Impact", href: "/impact" },
   { label: "Support", href: "#" },
 ];
@@ -60,7 +62,7 @@ export default function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className={`font-body text-sm font-medium transition-opacity hover:opacity-70 ${
+              className={`font-body text-base font-semibold transition-opacity hover:opacity-70 ${
                 solid ? "text-neutral-700" : "text-white"
               }`}
             >
