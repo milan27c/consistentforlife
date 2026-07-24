@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Globe } from "lucide-react";
 
@@ -102,10 +103,10 @@ export default function Footer() {
           Global, English
         </a>
         <div className="flex items-center gap-3">
-          <SocialIcon label="Facebook" href="https://facebook.com" icon="facebook" />
-          <SocialIcon label="Instagram" href="https://instagram.com" icon="instagram" />
-          <SocialIcon label="YouTube" href="https://youtube.com" icon="youtube" />
-          <SocialIcon label="LinkedIn" href="https://linkedin.com" icon="linkedin" />
+          <SocialIcon label="Facebook" href="https://facebook.com" icon="/social/fb.svg" />
+          <SocialIcon label="Instagram" href="https://instagram.com" icon="/social/instagram.svg" />
+          <SocialIcon label="TikTok" href="https://tiktok.com" icon="/social/tiktok.svg" />
+          <SocialIcon label="YouTube" href="https://youtube.com" icon="/social/youtube.svg" />
         </div>
       </div>
 
@@ -141,31 +142,7 @@ function SocialIcon({ label, href, icon }: { label: string; href: string; icon: 
       className="flex h-10 w-10 items-center justify-center rounded-full bg-ink transition-colors hover:bg-primary"
       title={label}
     >
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-warm-grey">
-        {icon === "facebook" && (
-          <path d="M14 9h2V6h-2c-1.66 0-3 1.34-3 3v2H9v3h2v6h3v-6h2.2l.8-3H14v-2c0-.28.22-.5.5-.5H14V9z" />
-        )}
-        {icon === "instagram" && (
-          <>
-            <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <circle cx="16.2" cy="7.8" r="0.9" fill="currentColor" />
-          </>
-        )}
-        {icon === "youtube" && (
-          <>
-            <path d="M9.8 9.2v5.6l4.9-2.8-4.9-2.8z" fill="currentColor" />
-            <rect x="3.5" y="6" width="17" height="12" rx="3" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          </>
-        )}
-        {icon === "linkedin" && (
-          <>
-            <rect x="5" y="10" width="2.6" height="8" fill="currentColor" />
-            <circle cx="6.3" cy="6.8" r="1.5" fill="currentColor" />
-            <path d="M11 10h2.5v1.4c.6-1 1.6-1.6 2.9-1.6 2.2 0 3.6 1.4 3.6 4.1V18h-2.6v-3.7c0-1.1-.5-1.9-1.5-1.9-.8 0-1.4.6-1.6 1.2-.1.2-.1.5-.1.8V18H11v-8z" fill="currentColor" />
-          </>
-        )}
-      </svg>
+      <Image src={icon} alt={label} width={18} height={18} className="brightness-0 invert" />
     </a>
   );
 }
