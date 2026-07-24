@@ -155,7 +155,7 @@ export default function Showcase() {
                 <Link
                   key={product.name}
                   href={`/products/${SAMPLE_PRODUCT_SLUG}`}
-                  className="group @container flex flex-col overflow-hidden rounded-2xl bg-white transition-shadow hover:shadow-md"
+                  className="group @container flex flex-col overflow-hidden rounded-2xl bg-white"
                 >
                   {cardInner}
                 </Link>

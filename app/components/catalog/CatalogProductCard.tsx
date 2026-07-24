@@ -73,7 +73,7 @@ export default function CatalogProductCard({ product }: { product: CatalogProduc
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group @container flex flex-col overflow-hidden rounded-2xl bg-white transition-shadow hover:shadow-md"
+      className="group @container flex flex-col overflow-hidden rounded-2xl bg-white"
     >
       {cardInner}
     </Link>
