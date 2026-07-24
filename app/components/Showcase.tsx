@@ -82,7 +82,11 @@ export default function Showcase() {
               const mrp = Math.round(product.price * 1.3);
               const savings = mrp - product.price;
               return (
-                <article key={product.name} className="group flex flex-col overflow-hidden rounded-2xl bg-white">
+                <Link
+                  key={product.name}
+                  href={`/products/${SAMPLE_PRODUCT_SLUG}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl bg-white transition-shadow hover:shadow-md"
+                >
                   <div className="px-4 pt-4 pb-0">
                     <h3 className="font-heading text-xs font-semibold leading-snug text-ink line-clamp-2 min-h-[1.8rem]" title={product.name}>
                       {product.name}
@@ -113,14 +117,11 @@ export default function Showcase() {
                         </span>
                       </div>
                     </div>
-                    <Link
-                      href={`/products/${SAMPLE_PRODUCT_SLUG}`}
-                      className="shrink-0 rounded-lg bg-primary px-3 py-2 font-body text-xs font-semibold text-white transition-colors hover:bg-[#8c002c]"
-                    >
+                    <div className="pointer-events-none shrink-0 rounded-lg bg-primary px-3 py-2 font-body text-xs font-semibold text-white">
                       Buy Now
-                    </Link>
+                    </div>
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>
