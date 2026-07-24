@@ -88,7 +88,7 @@ export default function Showcase() {
                   className="group flex flex-col overflow-hidden rounded-2xl bg-white transition-shadow hover:shadow-md"
                 >
                   <div className="px-4 pt-4 pb-0">
-                    <h3 className="font-heading text-xs font-semibold leading-snug text-ink line-clamp-2 min-h-[1.8rem]" title={product.name}>
+                    <h3 className="font-heading text-sm font-semibold leading-snug text-ink line-clamp-2 min-h-[2.2rem]" title={product.name}>
                       {product.name}
                     </h3>
                   </div>
