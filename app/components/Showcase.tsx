@@ -12,7 +12,7 @@ export default function Showcase() {
   const category = SHOWCASE[active];
 
   return (
-    <section id="showcase" className="bg-warm-grey py-24 sm:py-28">
+    <section id="showcase" className="bg-warm-grey py-20 sm:py-24 md:py-28">
       {/* Tabs */}
       <div className="px-6 md:px-10 lg:px-16">
         <div className="flex flex-wrap justify-center gap-7 pb-1 sm:gap-10 md:justify-start md:flex-nowrap md:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

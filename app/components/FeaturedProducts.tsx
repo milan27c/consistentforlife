@@ -79,7 +79,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section id="products" className="bg-warm-grey py-24 sm:py-28">
+    <section id="products" className="bg-warm-grey py-20 sm:py-24 md:py-28">
       {/* Heading + navigation (respects the page gutter on both sides) */}
       <div className="mb-10 flex flex-col items-center gap-6 px-6 md:flex-row md:items-end md:justify-between md:px-10 lg:px-16">
         <h2 className="text-center font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-left lg:text-5xl">

@@ -9,7 +9,7 @@ export default function Impact() {
   return (
     <section
       id="impact"
-      className="bg-warm-grey px-6 py-24 sm:py-28 md:px-10 lg:px-16"
+      className="bg-warm-grey px-6 py-20 sm:py-24 md:py-28 md:px-10 lg:px-16"
     >
       <div>
         {/* Header: left heading, right "view more" */}
