@@ -31,8 +31,10 @@ export default function ProductGallery({
               key={img.src}
               onClick={() => setActive(i)}
               aria-label={`Show image ${i + 1}`}
-              className={`relative aspect-square w-20 shrink-0 overflow-hidden rounded-xl bg-white transition-opacity ${
-                i === active ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
+              className={`relative aspect-square w-20 shrink-0 overflow-hidden rounded-xl bg-white transition-all ${
+                i === active
+                  ? "ring-2 ring-primary ring-offset-2 ring-offset-warm-grey opacity-100"
+                  : "ring-1 ring-neutral-200 opacity-60 hover:opacity-100"
               }`}
             >
               <Image
