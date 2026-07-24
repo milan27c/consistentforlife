@@ -12,10 +12,10 @@ export default function Showcase() {
   const category = SHOWCASE[active];
 
   return (
-    <section id="showcase" className="bg-warm-grey py-24 sm:py-28">
+    <section id="showcase" className="bg-warm-grey py-16 sm:py-24 md:py-28">
       {/* Tabs */}
       <div className="px-6 md:px-10 lg:px-16">
-        <div className="flex gap-7 overflow-x-auto pb-1 sm:gap-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-6 pb-1 sm:gap-7 md:gap-10 md:overflow-x-auto md:flex-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SHOWCASE.map((c, i) => (
             <button
               key={c.tab}
@@ -46,8 +46,8 @@ export default function Showcase() {
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         {/* Heading */}
-        <div className="mt-10 px-6 md:px-10 lg:px-16">
-          <h2 className="max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        <div className="mt-10 px-6 text-center md:text-left md:px-10 lg:px-16">
+          <h2 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
             {category.heading}
           </h2>
         </div>
@@ -84,7 +84,7 @@ export default function Showcase() {
 
               const cardInner = (
                 <>
-                  <div className="px-4 pt-4 pb-0">
+                  <div className="px-4 pt-4 pb-0 text-center">
                     {product.comingSoon && (
                       <span className="mb-2 inline-block rounded-md bg-neutral-100 px-2.5 py-1 font-body text-[0.65rem] font-bold uppercase tracking-wide text-neutral-500">
                         Coming Soon

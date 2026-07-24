@@ -68,7 +68,7 @@ export default function Hero() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Mobile hero — simpler, two-image transition                        */
+/* Mobile hero — same animation as desktop, but with mobile images    */
 /* ------------------------------------------------------------------ */
 
 function HeroMobile() {
@@ -84,45 +84,151 @@ function HeroMobile() {
     mass: 0.4,
   });
 
-  const scene1Opacity = useTransform(p, [0, 0.4], [1, 0.2]);
-  const scene2Opacity = useTransform(p, [0.4, 0.8], [0, 1]);
-  const titleOpacity = useTransform(p, [0.3, 0.5], [0, 1]);
-  const titleY = useTransform(p, [0.3, 0.6], [40, 0]);
+  /* --- Scene 1: mobilehero1; zooms toward the scene early in the scroll --- */
+  const scene1Scale = useTransform(p, [0, 0.54, 1], [1.05, 1.55, 1.55]);
+  const scene1Y = useTransform(p, [0, 0.6], ["0%", "-8%"]);
+  const scene1Opacity = useTransform(p, [0.36, 0.54], [1, 0.15]);
+  const vignetteOpacity = useTransform(p, [0.3, 0.5], [1, 0.2]);
+
+  /* --- Scene 2: mobilehero2 ------ */
+  const scene2Opacity = useTransform(p, [0.52, 0.78], [0, 1]);
+  const scene2Scale = useTransform(p, [0.52, 1], [1.16, 1]);
+  const scrimOpacity = useTransform(p, [0.64, 0.84], [0, 1]);
+
+  /* --- Legibility haze */
+  const hazeOpacity = useTransform(p, [0.3, 0.5, 0.62, 0.82], [0, 0.55, 0.5, 0]);
+
+  /* --- Title "Consistent For Life" */
+  const titleOpacity = useTransform(p, [0.4, 0.53], [0, 1]);
+  const titleBlur = useTransform(p, [0.4, 0.56], [16, 0]);
+  const titleFilter = useTransform(titleBlur, (b) => `blur(${b}px)`);
+  const titleScale = useTransform(p, [0.4, 0.58, 0.82], [1.55, 1.4, 1]);
+  const titleColor = useTransform(p, [0.6, 0.78], ["#262521", "#ffffff"]);
+  const titleY = useTransform(p, [0.58, 0.9], ["0svh", "26svh"]);
+
+  /* --- Sub-heading + CTA */
+  const metaOpacity = useTransform(p, [0.82, 0.95], [0, 1]);
+  const metaY = useTransform(p, [0.82, 0.95], [26, 0]);
+
+  /* --- "Scroll to begin" hint */
+  const hintOpacity = useTransform(p, [0, 0.1], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-[240vh]">
+    <section ref={ref} className="relative h-[340vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-ink">
+        {/* Scene 1 — mobilehero1 */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/images/hero/mobilehero1.png')",
+            scale: scene1Scale,
+            y: scene1Y,
             opacity: scene1Opacity,
+            transformOrigin: "50% 40%",
           }}
         />
+        {/* Vignette on scene 1 */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            opacity: vignetteOpacity,
+            background:
+              "radial-gradient(120% 90% at 50% 40%, transparent 35%, rgba(0,0,0,0.5) 100%)",
+          }}
+        />
+
+        {/* Scene 2 — mobilehero2 */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/images/hero/mobilehero2.png')",
+            scale: scene2Scale,
             opacity: scene2Opacity,
           }}
         />
+        {/* Legibility scrim for the settled headline */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40"
-          style={{ opacity: 0.5 }}
-        />
-        <motion.div
-          className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center"
+          className="absolute inset-0"
           style={{
-            opacity: titleOpacity,
-            y: titleY,
+            opacity: scrimOpacity,
+            background:
+              "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 52%, rgba(0,0,0,0.7) 100%)",
           }}
+        />
+
+        {/* Drifting cloud layers */}
+        {CLOUD_LAYERS.map((c, i) => (
+          <CloudLayer key={i} p={p} {...c} />
+        ))}
+
+        {/* Soft white haze */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            opacity: hazeOpacity,
+            background:
+              "radial-gradient(115% 115% at 50% 46%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.55) 45%, rgba(240,236,228,0.2) 80%, transparent 100%)",
+          }}
+        />
+
+        {/* Headline group */}
+        <motion.div
+          className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
+          style={{ y: titleY }}
         >
-          <h1 className="font-heading text-3xl font-semibold text-white">
+          <motion.h1
+            className="font-heading font-semibold leading-[0.95] tracking-tight"
+            style={{
+              opacity: titleOpacity,
+              filter: titleFilter,
+              scale: titleScale,
+              color: titleColor,
+              fontSize: "clamp(1.5rem, 5.2vw, 3rem)",
+              textShadow: "0 2px 40px rgba(0,0,0,0.35)",
+            }}
+          >
             Consistent For Life
-          </h1>
-          <p className="font-body text-base text-white/80">
-            Technology built to last
-          </p>
+          </motion.h1>
+
+          <motion.p
+            className="mt-4 max-w-sm font-body text-sm leading-relaxed text-white/85"
+            style={{ opacity: metaOpacity, y: metaY }}
+          >
+            The same trust, carried from one generation to the next, in homes
+            built around technology that simply keeps working.
+          </motion.p>
+
+          <motion.a
+            href="#products"
+            className="pointer-events-auto mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-body text-xs font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.03] hover:bg-[#8c002c]"
+            style={{ opacity: metaOpacity, y: metaY }}
+          >
+            Explore Products
+            <ArrowRight />
+          </motion.a>
+        </motion.div>
+
+        {/* Scroll-to-begin hint */}
+        <motion.div
+          className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-3"
+          style={{ opacity: hintOpacity }}
+        >
+          <button
+            onClick={scrollToNext}
+            aria-label="Scroll to begin"
+            className="group flex flex-col items-center gap-2"
+          >
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+              className="flex items-center justify-center"
+            >
+              <MouseIcon />
+            </motion.div>
+            <span className="font-body text-xs uppercase tracking-wider text-white/80">
+              Scroll down
+            </span>
+          </button>
         </motion.div>
       </div>
     </section>
