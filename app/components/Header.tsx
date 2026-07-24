@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, ShoppingBag } from "lucide-react";
+import { Search, ShoppingBag, MoreVertical, X } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -18,6 +18,7 @@ export default function Header() {
   // Only the homepage has the dark hero to sit transparently over.
   const isHome = pathname === "/";
   const [solid, setSolid] = useState(!isHome);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Non-home pages have no dark hero, so the header stays solid (initial state).
@@ -84,6 +85,46 @@ export default function Header() {
           >
             <ShoppingBag className="h-5 w-5" strokeWidth={1.75} />
           </button>
+          <div className="relative">
+            <button
+              aria-label="More options"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
+            >
+              {menuOpen ? (
+                <X className="h-5 w-5" strokeWidth={1.75} />
+              ) : (
+                <MoreVertical className="h-5 w-5" strokeWidth={1.75} />
+              )}
+            </button>
+
+            {/* Dropdown menu */}
+            {menuOpen && (
+              <div className={`absolute right-0 top-12 rounded-lg border border-neutral-200 bg-white shadow-lg ${solid ? "" : "border-white/20 bg-ink/95 backdrop-blur"}`}>
+                <a
+                  href="#"
+                  className={`block px-4 py-2.5 font-body text-sm font-medium transition-colors hover:bg-neutral-100 first:rounded-t-lg ${solid ? "text-ink hover:bg-neutral-100" : "text-white hover:bg-white/10"}`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Account
+                </a>
+                <a
+                  href="#"
+                  className={`block px-4 py-2.5 font-body text-sm font-medium transition-colors hover:bg-neutral-100 ${solid ? "text-ink hover:bg-neutral-100" : "text-white hover:bg-white/10"}`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Wishlist
+                </a>
+                <a
+                  href="#"
+                  className={`block px-4 py-2.5 font-body text-sm font-medium transition-colors hover:bg-neutral-100 last:rounded-b-lg ${solid ? "text-ink hover:bg-neutral-100" : "text-white hover:bg-white/10"}`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Settings
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>
