@@ -24,10 +24,10 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tagline: "Cinematic picture, right in your living room.",
     banner: "/images/products-home-page/TV/banner.png",
     products: [
-      { name: '65" OLED Smart Television', price: 895000, image: "/images/about/tv.png" },
-      { name: '55" QLED 4K Television', price: 545000, image: PEXELS(6782581) },
-      { name: '43" Smart Full HD TV', price: 189000, image: PEXELS(4009401) },
-      { name: "Home Cinema Projector", price: 425000, image: PEXELS(1201996) },
+      { name: "108cm (43) QNED AI QNED65 Mini LED 4K Smart TV 2026", price: 189000, image: "/images/products-home-page/TV/products/1.png" },
+      { name: "108 cm (43) NANO 4K UHD AI TV NU870 2026", price: 159000, image: "/images/products-home-page/TV/products/2.png" },
+      { name: "108cm (43) QNED 8AA Smart TV with α7 AI Processor 4K Gen8, Filmmaker Mode with Dolby Atmos", price: 225000, image: "/images/products-home-page/TV/products/3.png" },
+      { name: "108 cm (43) 4K UHD AI UA8200 Smart TV with α7 AI Processor Gen8, Filmmaker Mode with Dolby Atmos", price: 195000, image: "/images/products-home-page/TV/products/4.png" },
     ],
   },
   {

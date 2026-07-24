@@ -26,107 +26,110 @@ export const lkr = (n: number) => `LKR ${n.toLocaleString("en-LK")}`;
 
 // Only one sample product page exists for now; every "View Product" link
 // across the site points here until the full catalog is built out.
-export const SAMPLE_PRODUCT_SLUG = "dual-inverter-split-ac";
+export const SAMPLE_PRODUCT_SLUG = "qned-ai-smart-tv";
 
 export const PRODUCT: ProductDetail = {
   slug: SAMPLE_PRODUCT_SLUG,
   badges: ["Best Seller", "2026 Model"],
-  name: "Dual Inverter Split Air Conditioner, AI Convertible 6 in 1 Cooling, 2026 Model",
-  breadcrumbLabel: "Dual Inverter Split AC",
-  sku: "CFL-AC18-2026",
-  rating: 4.3,
-  reviewCount: 41,
-  recommendPercent: 82,
-  price: 235000,
-  mrp: 325000,
+  name: "108cm (43) QNED AI QNED65 Mini LED 4K Smart TV 2026",
+  breadcrumbLabel: "QNED AI Smart TV",
+  sku: "TV-QNED65-2026",
+  rating: 4.6,
+  reviewCount: 58,
+  recommendPercent: 89,
+  price: 189000,
+  mrp: 249000,
   images: [
-    { src: PEXELS(1918291), alt: "Living room cooled by a wall mounted air conditioner" },
-    { src: PEXELS(3964704), alt: "Air conditioner units mounted on a building exterior" },
-    { src: PEXELS(1571460), alt: "Modern home interior kept comfortable year round" },
+    { src: "/images/products-home-page/TV/products/1.png", alt: "QNED AI Smart TV front view" },
+    { src: "/images/products-home-page/TV/products/1 all images/1B.png", alt: "QNED AI Smart TV with people watching" },
+    { src: "/images/products-home-page/TV/products/1 all images/1C.png", alt: "QNED AI Smart TV display detail" },
+    { src: "/images/products-home-page/TV/products/1 all images/1D.png", alt: "QNED AI Smart TV side view" },
+    { src: "/images/products-home-page/TV/products/1 all images/1E.png", alt: "QNED AI Smart TV in home setup" },
   ],
   keyFeatures: [
-    "AI Convertible 6 in 1 cooling that adapts to the room",
-    "Dual Inverter compressor for quiet, efficient performance",
-    "Gold Fin coating for long lasting corrosion resistance",
-    "10 year compressor warranty, 5 year parts warranty",
+    "QNED65 Mini LED with 4K resolution and AI upscaling",
+    "α7 AI Processor Gen8 for intelligent picture enhancement",
+    "Filmmaker Mode with Dolby Atmos for cinema-quality experience",
+    "Smart AI features adapt to your viewing habits",
+    "2026 model with latest AI technology",
   ],
   description:
-    "Built for comfort that lasts, this split air conditioner learns how you cool your home and adjusts capacity, temperature, and fan speed automatically, so every room stays comfortable with less effort and less energy.",
+    "Experience cinema-quality picture right in your living room. This 108cm QNED AI Smart TV combines cutting-edge Mini LED technology with AI intelligence that adapts to every scene, delivering breathtaking clarity and vibrant colors. Whether you're watching movies, sports, or everyday content, the α7 AI Processor ensures every frame looks its best.",
   featureChips: [
-    { title: "AI Convertible", value: "6 in 1", caption: "Cooling" },
-    { title: "More convenience", value: "Diet Mode", caption: "Energy efficiency" },
-    { title: "Anti corrosion coating", value: "Gold Fin+", caption: "Long lasting durability" },
-    { title: "Faster cooling", value: "Rapid", caption: "High capacity" },
-    { title: "Inverter compressor", value: "10 Year", caption: "Warranty" },
-    { title: "PCB and motor", value: "5 Year", caption: "Warranty" },
+    { title: "Display", value: "QNED65", caption: "Mini LED 4K" },
+    { title: "AI Processor", value: "α7 Gen8", caption: "Scene adaptation" },
+    { title: "Audio", value: "Dolby Atmos", caption: "Immersive sound" },
+    { title: "Resolution", value: "4K", caption: "Ultra HD" },
+    { title: "Screen size", value: "43 inch", caption: "108cm" },
+    { title: "Smart features", value: "AI Ready", caption: "Future-proof" },
   ],
   featureHighlights: [
     {
-      heading: "Cooling that adapts to you",
-      body: "Effortlessly reaches perfect cooling by automatically adjusting capacity, temperature, and fan speed for optimal comfort in any room, any season.",
-      image: PEXELS(1918291),
+      heading: "Breathtaking clarity at every angle",
+      body: "QNED65 Mini LED technology delivers perfect blacks and brilliant highlights with thousands of independent dimming zones, creating lifelike contrast that draws you into every scene.",
+      image: "/images/products-home-page/TV/products/1 all images/1C.png",
     },
     {
-      heading: "Quiet by design, efficient by nature",
-      body: "A Dual Inverter compressor ramps power up and down smoothly instead of switching on and off, so it runs quieter and uses less energy over its lifetime.",
-      image: PEXELS(3964704),
+      heading: "AI that understands great picture",
+      body: "The α7 AI Processor Gen8 analyzes every frame in real-time, intelligently upscaling content and optimizing colors, contrast, and motion so even standard broadcasts look stunning.",
+      image: "/images/products-home-page/TV/products/1 all images/1D.png",
     },
   ],
   specs: [
-    { label: "Capacity", value: "1.5 Ton" },
-    { label: "Energy rating", value: "5 Star" },
-    { label: "Cooling capacity", value: "4.4 kW" },
-    { label: "Power consumption", value: "1,320 W" },
-    { label: "Compressor type", value: "Dual Inverter" },
-    { label: "Noise level, indoor", value: "19 dB" },
-    { label: "Refrigerant", value: "R32" },
-    { label: "Dimensions, indoor unit", value: "899 x 285 x 210 mm" },
-    { label: "Warranty, compressor", value: "10 years" },
-    { label: "Warranty, parts", value: "5 years" },
+    { label: "Screen size", value: "108 cm (43 inches)" },
+    { label: "Resolution", value: "4K UHD (3840 x 2160)" },
+    { label: "Display type", value: "QNED65 Mini LED" },
+    { label: "Processor", value: "α7 AI Processor Gen8" },
+    { label: "Refresh rate", value: "120 Hz" },
+    { label: "Audio", value: "Dolby Atmos" },
+    { label: "Smart TV OS", value: "WebOS 2026" },
+    { label: "Connectivity", value: "Wi-Fi 6, Bluetooth 5.2, 4x HDMI 2.1" },
+    { label: "Power consumption", value: "85W (typical)" },
+    { label: "Warranty", value: "2 years full" },
   ],
   reviews: [
     {
-      name: "Amaya P.",
+      name: "Kavi L.",
       rating: 5,
-      date: "March 2026",
+      date: "July 2026",
       comment:
-        "Runs so much quieter than the unit it replaced, and the room cools down in minutes. Diet Mode has noticeably helped with the electricity bill.",
+        "The picture quality is absolutely stunning. The AI upscaling makes even older content look incredible. This is a genuinely premium TV experience.",
     },
     {
-      name: "Ruwan S.",
-      rating: 4,
-      date: "February 2026",
+      name: "Nisha D.",
+      rating: 5,
+      date: "June 2026",
       comment:
-        "Installation was straightforward and the AI cooling mode genuinely adjusts itself well. Wish the remote felt a bit more premium.",
+        "Best purchase we made this year. Dolby Atmos sound is immersive, the colors pop, and it's so easy to use. Highly recommend.",
     },
     {
-      name: "Dilini F.",
+      name: "Rohan P.",
       rating: 4,
-      date: "January 2026",
+      date: "May 2026",
       comment:
-        "Solid, dependable performance through the hottest months. Exactly the kind of appliance you stop thinking about because it just works.",
+        "Fantastic picture quality and smart features work seamlessly. Only minor note: the remote could have a few more shortcuts, but overall excellent.",
     },
   ],
   faqs: [
     {
-      question: "What size room is this unit suited for?",
+      question: "Is this TV suitable for gaming?",
       answer:
-        "This 1.5 ton model comfortably cools rooms up to roughly 150 to 180 square feet, depending on ceiling height, insulation, and sun exposure.",
+        "Yes, with 120Hz refresh rate and HDMI 2.1 support, it's excellent for next-gen console gaming. The AI processor also minimizes input lag for competitive play.",
     },
     {
-      question: "Does it need a stabilizer?",
+      question: "Does it have built-in streaming apps?",
       answer:
-        "An external stabilizer is not required under normal voltage conditions. The unit includes built in voltage protection for typical fluctuations.",
+        "Yes, WebOS 2026 includes all major streaming platforms pre-installed: Netflix, YouTube, Prime Video, Disney+, and more. Wi-Fi 6 ensures smooth streaming.",
     },
     {
-      question: "How often should the filters be cleaned?",
+      question: "What is Filmmaker Mode?",
       answer:
-        "We recommend cleaning the washable filters every two weeks during heavy use, and scheduling a professional service check once a year.",
+        "Filmmaker Mode displays content exactly as directors intended, with no motion smoothing or artificial enhancements, perfect for watching movies and series.",
     },
     {
-      question: "What does the warranty cover?",
+      question: "Can I wall mount this TV?",
       answer:
-        "The compressor is covered for 10 years and all other parts for 5 years from the date of purchase, provided the unit is serviced as recommended.",
+        "Yes, the TV is VESA compatible and supports standard wall mounting. We recommend professional installation for safety and optimal viewing angle.",
     },
   ],
 };
