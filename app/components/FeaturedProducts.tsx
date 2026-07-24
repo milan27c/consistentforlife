@@ -174,7 +174,7 @@ export default function FeaturedProducts() {
                   href={`/products/${SAMPLE_PRODUCT_SLUG}`}
                   className="shrink-0 rounded-xl bg-primary px-5 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
                 >
-                  Buy Now
+                  Where to Buy
                 </Link>
               </div>
             </motion.article>

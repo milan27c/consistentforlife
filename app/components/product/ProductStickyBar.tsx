@@ -76,7 +76,7 @@ export default function ProductStickyBar({
             {lkr(price)}
           </span>
           <button className="rounded-full bg-primary px-5 py-2.5 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]">
-            Buy Now
+            Where to Buy
           </button>
         </div>
       </div>

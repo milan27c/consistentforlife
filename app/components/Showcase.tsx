@@ -134,7 +134,7 @@ export default function Showcase() {
                           : "bg-primary text-white"
                       }`}
                     >
-                      {product.comingSoon ? "Notify Me" : "Buy Now"}
+                      {product.comingSoon ? "Notify Me" : "Where to Buy"}
                     </div>
                   </div>
                 </>

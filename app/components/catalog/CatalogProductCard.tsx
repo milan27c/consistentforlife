@@ -56,7 +56,7 @@ export default function CatalogProductCard({ product }: { product: CatalogProduc
             product.comingSoon ? "bg-neutral-100 text-neutral-500" : "bg-primary text-white"
           }`}
         >
-          {product.comingSoon ? "Notify Me" : "Buy Now"}
+          {product.comingSoon ? "Notify Me" : "Where to Buy"}
         </div>
       </div>
     </>

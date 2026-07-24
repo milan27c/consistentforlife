@@ -119,7 +119,7 @@ export default async function ProductPage({
               )}
 
               <button className="mt-6 w-full rounded-full bg-primary py-4 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c] sm:w-auto sm:px-10">
-                Buy Now
+                Where to Buy
               </button>
 
               <p className="mt-6 font-body text-sm leading-relaxed text-neutral-600">
