@@ -60,10 +60,10 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tagline: "The perfect climate, quietly maintained.",
     banner: "/images/products-home-page/AC/ac.png",
     products: [
-      { name: "Dual Inverter Split AC", price: 235000, image: "/images/about/ac.png" },
-      { name: "Wall Mounted Inverter AC", price: 195000, image: PEXELS(3964704) },
-      { name: "Multi Zone Climate System", price: 385000, image: PEXELS(1918291) },
-      { name: "Smart Air Purifier", price: 95000, image: PEXELS(5825576) },
+      { name: "24,000 BTU Dual Inverter Split AC with ThinQ (Wi-Fi), 4 Way Swing & Ocean Black Fin", price: 285000, image: "/images/products-home-page/AC/products/1.png" },
+      { name: "12,000 BTU Dual Inverter Smart Super Convertible 5-in-1 Split AC with ThinQ (Wi-Fi)", price: 195000, image: "/images/products-home-page/AC/products/2.png" },
+      { name: "18,000 BTU Dual Inverter Air Conditioner", price: 235000, image: "/images/products-home-page/AC/products/3.png" },
+      { name: "12,000 BTU Dual Inverter Ultra Super Convertible 5-in-1 Split with UV Nano", price: 215000, image: "/images/products-home-page/AC/products/4.png" },
     ],
   },
   {
