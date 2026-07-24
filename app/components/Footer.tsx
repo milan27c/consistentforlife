@@ -103,10 +103,10 @@ export default function Footer() {
           Global, English
         </a>
         <div className="flex items-center gap-3">
-          <SocialIcon label="Facebook" href="https://facebook.com" icon="/social/fb.svg" />
-          <SocialIcon label="Instagram" href="https://instagram.com" icon="/social/instagram.svg" />
-          <SocialIcon label="TikTok" href="https://tiktok.com" icon="/social/tiktok.svg" />
-          <SocialIcon label="YouTube" href="https://youtube.com" icon="/social/youtube.svg" />
+          <SocialIcon label="Facebook" href="https://facebook.com" icon="/images/social/fb.png" />
+          <SocialIcon label="Instagram" href="https://instagram.com" icon="/images/social/instagram.png" />
+          <SocialIcon label="TikTok" href="https://tiktok.com" icon="/images/social/tiktok.png" />
+          <SocialIcon label="YouTube" href="https://youtube.com" icon="/images/social/youtube.png" />
         </div>
       </div>
 
@@ -142,7 +142,7 @@ function SocialIcon({ label, href, icon }: { label: string; href: string; icon: 
       className="flex h-10 w-10 items-center justify-center rounded-full bg-ink transition-colors hover:bg-primary"
       title={label}
     >
-      <Image src={icon} alt={label} width={18} height={18} className="brightness-0 invert" />
+      <Image src={icon} alt={label} width={20} height={20} />
     </a>
   );
 }
