@@ -48,10 +48,10 @@ export const SHOWCASE: ShowcaseCategory[] = [
     tagline: "Dependable helpers for every single day.",
     banner: "/images/products-home-page/Appliances/banner.png",
     products: [
-      { name: "Side by Side Refrigerator", price: 545000, image: PEXELS(373548) },
-      { name: "Multi Door Refrigerator", price: 625000, image: "/images/about/refrigrator.png" },
-      { name: "Front Load Washing Machine", price: 189000, image: PEXELS(5816934) },
-      { name: "Gas Cooker with Hood", price: 165000, image: PEXELS(2062426) },
+      { name: "594L Side-by-Side Fridge with InstaView Door-in-Door™ in Matt Black", price: 385000, image: "/images/products-home-page/Appliances/products/1.png" },
+      { name: "NeoChef Charcoal Healthy Oven", price: 65000, image: "/images/products-home-page/Appliances/products/2.png" },
+      { name: "Dishwasher with QuadWash™ and TrueSteam®", price: 175000, image: "/images/products-home-page/Appliances/products/3.png" },
+      { name: "11kg AI Direct Drive Front Load Washing Machine", price: 145000, image: "/images/products-home-page/Appliances/products/4.png" },
     ],
   },
   {
