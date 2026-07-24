@@ -75,7 +75,7 @@ function HeroMobile() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end start"],
   });
 
   const p = useSpring(scrollYProgress, {
@@ -243,7 +243,7 @@ function HeroMotion() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end start"],
   });
 
   // Smooth the raw progress for buttery parallax.
