@@ -77,33 +77,52 @@ export default function Showcase() {
 
         {/* Products */}
         <div className="mt-12 px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4 md:gap-8">
-            {category.products.map((product) => (
-              <article key={product.name} className="group">
-                <div className="relative aspect-square overflow-hidden rounded-2xl bg-neutral-100">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={800}
-                    height={800}
-                    sizes="(max-width: 768px) 50vw, 280px"
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="mt-4 font-heading text-base font-semibold leading-snug text-ink">
-                  {product.name}
-                </h3>
-                <p className="mt-1 font-body text-lg font-semibold text-primary">
-                  {lkr(product.price)}
-                </p>
-                <Link
-                  href={`/products/${SAMPLE_PRODUCT_SLUG}`}
-                  className="mt-3 inline-flex items-center rounded-full border border-ink/25 px-4 py-2 font-body text-xs font-semibold text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
-                >
-                  View Product
-                </Link>
-              </article>
-            ))}
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+            {category.products.map((product) => {
+              const mrp = Math.round(product.price * 1.3);
+              const savings = mrp - product.price;
+              return (
+                <article key={product.name} className="group flex flex-col overflow-hidden rounded-2xl bg-white">
+                  <div className="px-5 pt-5 pb-0">
+                    <h3 className="font-heading text-sm font-semibold leading-snug text-ink line-clamp-2 min-h-[2.2rem]" title={product.name}>
+                      {product.name}
+                    </h3>
+                  </div>
+
+                  <div className="relative aspect-square overflow-hidden bg-white px-6 py-3">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 280px"
+                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
+
+                  <div className="mt-auto flex items-center justify-between gap-3 p-5 pt-3">
+                    <div>
+                      <p className="font-body text-[0.7rem] font-semibold text-primary">
+                        Save {lkr(savings)}
+                      </p>
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-heading text-lg font-bold text-ink">
+                          {lkr(product.price)}
+                        </span>
+                        <span className="font-body text-xs text-neutral-400 line-through">
+                          {lkr(mrp)}
+                        </span>
+                      </div>
+                    </div>
+                    <Link
+                      href={`/products/${SAMPLE_PRODUCT_SLUG}`}
+                      className="shrink-0 rounded-xl bg-primary px-4 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-[#8c002c]"
+                    >
+                      Buy Now
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </motion.div>
