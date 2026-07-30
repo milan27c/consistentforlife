@@ -8,7 +8,10 @@ export default function Newsletter() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-warm-grey px-6 py-20 sm:py-24 md:py-28 md:px-10 lg:px-16">
+    <section
+      id="newsroom"
+      className="scroll-mt-20 bg-warm-grey px-6 py-20 sm:py-24 md:py-28 md:px-10 lg:px-16"
+    >
       <h2 className="mb-10 text-center md:text-left font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         Latest News
       </h2>
@@ -34,15 +37,26 @@ export default function Newsletter() {
               sizes={item.large ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 25vw"}
               className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+            <div
+              className={`absolute inset-0 bg-gradient-to-t to-transparent ${
+                item.large ? "from-black/85 via-black/30" : "from-black/80 via-black/20"
+              }`}
+            />
             <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
               <h3
                 className={`font-heading font-semibold leading-snug text-white ${
-                  item.large ? "text-xl sm:text-2xl lg:text-3xl" : "text-base sm:text-lg"
+                  item.large
+                    ? "text-xl sm:text-2xl lg:text-3xl"
+                    : "line-clamp-3 text-base sm:text-lg"
                 }`}
               >
                 {item.heading}
               </h3>
+              {item.sub && (
+                <p className="mt-3 hidden max-w-xl font-body text-sm leading-relaxed text-white/80 sm:block sm:text-base">
+                  {item.sub}
+                </p>
+              )}
             </div>
           </motion.article>
         ))}

@@ -1,38 +1,34 @@
 export type NewsItem = {
-  tag: string;
   heading: string;
+  /** Only the large lead story carries a subheading. */
+  sub?: string;
   image: string;
   large?: boolean;
 };
 
-const PEXELS = (id: number) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1000`;
-
 export const NEWS: NewsItem[] = [
   {
-    tag: "Company",
-    heading: "A new chapter for Consistent For Life",
-    image: PEXELS(273209),
+    heading: "LG Electronics Releases Second-Quarter 2026 Financial Results",
+    sub: "Operating Profit Surges 147 Percent Year-Over-Year on High-Value Product Sales and Improved Cost Competitiveness",
+    image: "/images/news/1.png",
     large: true,
   },
   {
-    tag: "Expansion",
-    heading: "Now serving 12 new cities across the region",
-    image: PEXELS(302769),
+    heading:
+      "LG Electronics Launches Mid Static Ducted Unit, Delivering “Comfort Anywhere”",
+    image: "/images/news/2.png",
   },
   {
-    tag: "Inside the Team",
-    heading: "Behind the scenes, building products that last",
-    image: PEXELS(3153201),
+    heading:
+      "LG Electronics Unveils Next-Generation Smart Telematics Solution at MWC Barcelona 2026",
+    image: "/images/news/3.png",
   },
   {
-    tag: "Sustainability",
-    heading: "Our 2026 Sustainability Report is here",
-    image: PEXELS(1367269),
+    heading: "A New Reality in Pure Color: How LG Micro RGB evo AI Redefines Cloud Gaming",
+    image: "/images/news/4.png",
   },
   {
-    tag: "Sustainability",
-    heading: "Committed to cleaner energy, every day",
-    image: PEXELS(9799732),
+    heading: "LG InstaView Refrigerator Surpasses 5.3 Million in Global Sales",
+    image: "/images/news/5.png",
   },
 ];

@@ -8,6 +8,11 @@ import { StarRow } from "../../components/product/StarRow";
 import SizeSelector from "../../components/product/SizeSelector";
 import FeaturesSection from "../../components/product/FeaturesSection";
 import TVStorySection from "../../components/product/TVStorySection";
+import ColorStorySection from "../../components/product/ColorStorySection";
+import ProcessorStorySection from "../../components/product/ProcessorStorySection";
+import RemoteStorySection from "../../components/product/RemoteStorySection";
+import GamingStorySection from "../../components/product/GamingStorySection";
+import SoundStorySection from "../../components/product/SoundStorySection";
 import SpecsSection from "../../components/product/SpecsSection";
 import ReviewsSection from "../../components/product/ReviewsSection";
 import FaqSection from "../../components/product/FaqSection";
@@ -146,9 +151,26 @@ export default async function ProductPage({
           <section id="features" className="scroll-mt-36">
             <FeaturesSection chips={PRODUCT.featureChips} highlights={PRODUCT.featureHighlights} />
             {PRODUCT.category === "tv" && (
-              <div className="mt-16">
-                <TVStorySection />
-              </div>
+              <>
+                <div className="mt-20">
+                  <ColorStorySection />
+                </div>
+                <div className="mt-20">
+                  <ProcessorStorySection />
+                </div>
+                <div className="mt-20">
+                  <RemoteStorySection />
+                </div>
+                <div className="mt-20">
+                  <GamingStorySection />
+                </div>
+                <div className="mt-20">
+                  <SoundStorySection />
+                </div>
+                <div className="mt-20">
+                  <TVStorySection />
+                </div>
+              </>
             )}
           </section>
 

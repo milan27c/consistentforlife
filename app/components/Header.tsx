@@ -7,11 +7,12 @@ import { AnimatePresence, motion } from "motion/react";
 import { Search, ShoppingBag, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Products", href: "/products" },
+  { label: "Consistent For Life", href: "/" },
   { label: "Our Impact", href: "/#impact" },
-  { label: "AI Features", href: "#" },
-  { label: "Support", href: "#" },
+  { label: "Our Business", href: "/products" },
+  { label: "Sustainability", href: "#" },
+  { label: "Newsroom", href: "/#newsroom" },
+  { label: "LG AI", href: "#" },
 ];
 
 export default function Header() {
@@ -65,12 +66,12 @@ export default function Header() {
         </Link>
 
         {/* Nav links (desktop) */}
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-9">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className={`font-body text-sm font-semibold transition-opacity hover:opacity-70 ${
+              className={`whitespace-nowrap font-body text-sm font-semibold transition-opacity hover:opacity-70 ${
                 solid ? "text-neutral-700" : "text-white"
               }`}
             >

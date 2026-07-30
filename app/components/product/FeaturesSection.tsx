@@ -31,34 +31,36 @@ export default function FeaturesSection({
       </div>
 
       {/* Feature highlights */}
-      <div className="mt-16 flex flex-col gap-16">
-        {highlights.map((item, i) => (
-          <div
-            key={item.heading}
-            className={`flex flex-col items-center gap-8 lg:flex-row lg:gap-14 ${
-              i % 2 === 1 ? "lg:flex-row-reverse" : ""
-            }`}
-          >
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl lg:w-1/2">
-              <Image
-                src={item.image}
-                alt={item.heading}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
+      {highlights.length > 0 && (
+        <div className="mt-16 flex flex-col gap-16">
+          {highlights.map((item, i) => (
+            <div
+              key={item.heading}
+              className={`flex flex-col items-center gap-8 lg:flex-row lg:gap-14 ${
+                i % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl lg:w-1/2">
+                <Image
+                  src={item.image}
+                  alt={item.heading}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="lg:w-1/2">
+                <h3 className="font-heading text-xl font-semibold text-ink sm:text-2xl">
+                  {item.heading}
+                </h3>
+                <p className="mt-3 font-body text-sm leading-relaxed text-neutral-600 sm:text-base">
+                  {item.body}
+                </p>
+              </div>
             </div>
-            <div className="lg:w-1/2">
-              <h3 className="font-heading text-xl font-semibold text-ink sm:text-2xl">
-                {item.heading}
-              </h3>
-              <p className="mt-3 font-body text-sm leading-relaxed text-neutral-600 sm:text-base">
-                {item.body}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

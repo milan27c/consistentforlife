@@ -29,9 +29,12 @@ export default function ReviewsSection({
         </p>
       </div>
 
-      <div className="mt-8 flex flex-col divide-y divide-neutral-200">
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {reviews.map((review) => (
-          <div key={review.name} className="py-6 first:pt-0">
+          <div
+            key={review.name}
+            className="flex flex-col rounded-2xl bg-white p-6"
+          >
             <div className="flex items-center justify-between gap-4">
               <p className="font-body text-sm font-semibold text-ink">{review.name}</p>
               <p className="font-body text-xs text-neutral-400">{review.date}</p>

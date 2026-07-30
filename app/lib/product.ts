@@ -71,18 +71,7 @@ export const PRODUCT: ProductDetail = {
     { title: "Screen size", value: "43 inch", caption: "108cm" },
     { title: "Smart features", value: "AI Ready", caption: "Future-proof" },
   ],
-  featureHighlights: [
-    {
-      heading: "Breathtaking clarity at every angle",
-      body: "QNED65 Mini LED technology delivers perfect blacks and brilliant highlights with thousands of independent dimming zones, creating lifelike contrast that draws you into every scene.",
-      image: "/images/products-home-page/TV/products/1.png",
-    },
-    {
-      heading: "AI that understands great picture",
-      body: "The α7 AI Processor Gen8 analyzes every frame in real-time, intelligently upscaling content and optimizing colors, contrast, and motion so even standard broadcasts look stunning.",
-      image: "/images/products-home-page/TV/products/3.png",
-    },
-  ],
+  featureHighlights: [],
   specs: [
     { label: "Screen size", value: "108 cm (43 inches)" },
     { label: "Resolution", value: "4K UHD (3840 x 2160)" },
