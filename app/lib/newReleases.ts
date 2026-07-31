@@ -6,7 +6,7 @@ export type NewRelease = {
 
 export const NEW_RELEASES: NewRelease[] = [
   {
-    image: "/images/new-products/1A.png",
+    image: "/images/new-products/1B.png",
     alt: "A family on the sofa watching a football match on a large wall mounted screen",
     caption: "OLED evo: Stadium Energy, Living Room Precision",
   },
