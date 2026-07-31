@@ -4,8 +4,10 @@ import { useState } from "react";
 
 export default function SizeSelector({
   options,
+  label = "Screen size",
 }: {
   options: { label: string; selected?: boolean }[];
+  label?: string;
 }) {
   const defaultIndex = Math.max(
     0,
@@ -16,7 +18,7 @@ export default function SizeSelector({
   return (
     <div>
       <p className="font-body text-xs font-semibold uppercase tracking-wide text-neutral-500">
-        Screen size
+        {label}
       </p>
       <div className="mt-2.5 flex flex-wrap gap-2.5">
         {options.map((option, i) => (

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { SHOWCASE, lkr } from "../lib/showcase";
-import { SAMPLE_PRODUCT_SLUG } from "../lib/product";
+import { slugForProduct } from "../lib/product";
 
 export default function Showcase() {
   const [active, setActive] = useState(0);
@@ -154,7 +154,7 @@ export default function Showcase() {
               return (
                 <Link
                   key={product.name}
-                  href={`/products/${SAMPLE_PRODUCT_SLUG}`}
+                  href={`/products/${slugForProduct(product.name)}`}
                   className="group @container flex flex-col overflow-hidden rounded-2xl bg-white"
                 >
                   {cardInner}

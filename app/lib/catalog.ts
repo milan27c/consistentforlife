@@ -1,5 +1,5 @@
 import { SHOWCASE } from "./showcase";
-import { SAMPLE_PRODUCT_SLUG } from "./product";
+import { slugForProduct } from "./product";
 
 export type CatalogProduct = {
   name: string;
@@ -36,8 +36,8 @@ const RATINGS: Record<string, number> = {
   "Performance Workstation": 4.5,
 };
 
-// Every catalog item points at the one sample product page for now,
-// until the full per product catalog is built out.
+// Products with a detail page of their own link straight to it; the rest fall
+// back to the sample page until the full per product catalog is built out.
 export const CATALOG_PRODUCTS: CatalogProduct[] = SHOWCASE.flatMap((category) =>
   category.products.map((product) => ({
     name: product.name,
@@ -45,7 +45,7 @@ export const CATALOG_PRODUCTS: CatalogProduct[] = SHOWCASE.flatMap((category) =>
     price: product.price,
     rating: RATINGS[product.name] ?? 4.0,
     image: product.image,
-    slug: SAMPLE_PRODUCT_SLUG,
+    slug: slugForProduct(product.name),
     comingSoon: product.comingSoon,
   }))
 );

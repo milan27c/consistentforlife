@@ -13,11 +13,12 @@ import ProcessorStorySection from "../../components/product/ProcessorStorySectio
 import RemoteStorySection from "../../components/product/RemoteStorySection";
 import GamingStorySection from "../../components/product/GamingStorySection";
 import SoundStorySection from "../../components/product/SoundStorySection";
+import StorySection from "../../components/product/StorySection";
 import SpecsSection from "../../components/product/SpecsSection";
 import ReviewsSection from "../../components/product/ReviewsSection";
 import FaqSection from "../../components/product/FaqSection";
 import SupportSection from "../../components/product/SupportSection";
-import { PRODUCT, lkr } from "../../lib/product";
+import { PRODUCTS, getProduct, lkr } from "../../lib/product";
 
 const TABS: ProductTab[] = [
   { id: "features", label: "Features" },
@@ -28,7 +29,7 @@ const TABS: ProductTab[] = [
 ];
 
 export function generateStaticParams() {
-  return [{ slug: PRODUCT.slug }];
+  return PRODUCTS.map((product) => ({ slug: product.slug }));
 }
 
 export async function generateMetadata({
@@ -37,10 +38,11 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  if (slug !== PRODUCT.slug) return {};
+  const product = getProduct(slug);
+  if (!product) return {};
   return {
-    title: PRODUCT.name,
-    description: PRODUCT.description,
+    title: product.name,
+    description: product.description,
   };
 }
 
@@ -50,16 +52,17 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  if (slug !== PRODUCT.slug) notFound();
+  const product = getProduct(slug);
+  if (!product) notFound();
 
-  const savings = PRODUCT.mrp - PRODUCT.price;
+  const savings = product.mrp - product.price;
 
   return (
     <>
       <Header />
       <ProductStickyBar
-        name={PRODUCT.name}
-        price={PRODUCT.price}
+        name={product.name}
+        price={product.price}
         heroSentinelId="hero-sentinel"
         tabs={TABS}
       />
@@ -72,17 +75,17 @@ export default async function ProductPage({
               items={[
                 { label: "Home", href: "/" },
                 { label: "Products", href: "/products" },
-                { label: PRODUCT.breadcrumbLabel },
+                { label: product.breadcrumbLabel },
               ]}
             />
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-            <ProductGallery images={PRODUCT.images} />
+            <ProductGallery images={product.images} />
 
             <div>
               <div className="flex flex-wrap gap-2">
-                {PRODUCT.badges.map((badge) => (
+                {product.badges.map((badge) => (
                   <span
                     key={badge}
                     className="rounded-full border border-primary/40 px-3 py-1 font-body text-xs font-semibold uppercase tracking-wide text-primary"
@@ -93,33 +96,36 @@ export default async function ProductPage({
               </div>
 
               <h1 className="mt-4 font-heading text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl lg:text-4xl">
-                {PRODUCT.name}
+                {product.name}
               </h1>
 
-              <p className="mt-2 font-body text-sm text-neutral-500">SKU {PRODUCT.sku}</p>
+              <p className="mt-2 font-body text-sm text-neutral-500">SKU {product.sku}</p>
 
               <a href="#reviews" className="mt-3 flex items-center gap-2">
-                <StarRow rating={PRODUCT.rating} />
+                <StarRow rating={product.rating} />
                 <span className="font-body text-sm text-neutral-500">
-                  {PRODUCT.rating.toFixed(1)} &middot; {PRODUCT.reviewCount} reviews
+                  {product.rating.toFixed(1)} &middot; {product.reviewCount} reviews
                 </span>
               </a>
 
               <div className="mt-6 flex items-baseline gap-3 border-y border-neutral-200 py-5">
                 <span className="font-heading text-3xl font-bold text-ink">
-                  {lkr(PRODUCT.price)}
+                  {lkr(product.price)}
                 </span>
                 <span className="font-body text-base text-neutral-400 line-through">
-                  {lkr(PRODUCT.mrp)}
+                  {lkr(product.mrp)}
                 </span>
                 <span className="font-body text-sm font-semibold text-primary">
                   Save {lkr(savings)}
                 </span>
               </div>
 
-              {PRODUCT.sizeOptions && (
+              {product.sizeOptions && (
                 <div className="mt-6">
-                  <SizeSelector options={PRODUCT.sizeOptions} />
+                  <SizeSelector
+                    options={product.sizeOptions}
+                    label={product.sizeSelectorLabel}
+                  />
                 </div>
               )}
 
@@ -128,11 +134,11 @@ export default async function ProductPage({
               </button>
 
               <p className="mt-6 font-body text-sm leading-relaxed text-neutral-600">
-                {PRODUCT.description}
+                {product.description}
               </p>
 
               <ul className="mt-6 space-y-2.5">
-                {PRODUCT.keyFeatures.map((feature) => (
+                {product.keyFeatures.map((feature) => (
                   <li key={feature} className="flex gap-2.5 font-body text-sm text-neutral-700">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                     {feature}
@@ -149,8 +155,8 @@ export default async function ProductPage({
         {/* Tabbed content */}
         <div className="flex flex-col gap-20 px-6 py-16 md:px-10 lg:px-16">
           <section id="features" className="scroll-mt-36">
-            <FeaturesSection chips={PRODUCT.featureChips} highlights={PRODUCT.featureHighlights} />
-            {PRODUCT.category === "tv" && (
+            <FeaturesSection chips={product.featureChips} highlights={product.featureHighlights} />
+            {product.category === "tv" && (
               <>
                 <div className="mt-20">
                   <ColorStorySection />
@@ -172,23 +178,28 @@ export default async function ProductPage({
                 </div>
               </>
             )}
+            {product.storyBlocks?.map((block) => (
+              <div key={block.heading} className="mt-20">
+                <StorySection block={block} />
+              </div>
+            ))}
           </section>
 
           <section id="specs" className="scroll-mt-36">
-            <SpecsSection specs={PRODUCT.specs} />
+            <SpecsSection specs={product.specs} />
           </section>
 
           <section id="reviews" className="scroll-mt-36">
             <ReviewsSection
-              rating={PRODUCT.rating}
-              reviewCount={PRODUCT.reviewCount}
-              recommendPercent={PRODUCT.recommendPercent}
-              reviews={PRODUCT.reviews}
+              rating={product.rating}
+              reviewCount={product.reviewCount}
+              recommendPercent={product.recommendPercent}
+              reviews={product.reviews}
             />
           </section>
 
           <section id="faq" className="scroll-mt-36">
-            <FaqSection faqs={PRODUCT.faqs} />
+            <FaqSection faqs={product.faqs} />
           </section>
 
           <section id="support" className="scroll-mt-36">
