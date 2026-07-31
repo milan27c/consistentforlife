@@ -46,6 +46,54 @@ const CLOUD_LAYERS: CloudConfig[] = [
   { src: CLOUD_1, enter: 0.32, peak: 0.54, out: 0.78, xFrom: "24%", xTo: "-24%", yFrom: "-8%", yTo: "10%", scaleFrom: 1.3, scaleTo: 1.9, opacity: 0.75, blur: 7 },
 ];
 
+/* Bridge line that carries the viewer between the two scenes: it forms in the
+   clouds once scene 1 starts dissolving and clears out just as the headline
+   begins to resolve. */
+function BridgeLine({
+  p,
+  fontSize,
+}: {
+  p: MotionValue<number>;
+  fontSize: string;
+}) {
+  const opacity = useTransform(p, [0.14, 0.23, 0.4, 0.47], [0, 1, 1, 0]);
+  const blur = useTransform(p, [0.14, 0.24, 0.42, 0.47], [14, 0, 0, 10]);
+  const filter = useTransform(blur, (b) => `blur(${b}px)`);
+  const scale = useTransform(p, [0.14, 0.47], [0.92, 1.12]);
+  const y = useTransform(p, [0.14, 0.47], ["4svh", "-4svh"]);
+  /* The rule draws across the whole time the wording is legible, so its length
+     reads as a progress bar for this stretch of the scroll. */
+  const ruleScale = useTransform(p, [0.19, 0.4], [0, 1]);
+
+  return (
+    <motion.div
+      className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6"
+      style={{ opacity, filter, scale, y }}
+    >
+      {/* Column shrink-wraps the heading, so the rule below can be sized off the
+          wording itself rather than an arbitrary fixed width. */}
+      <div className="flex flex-col" style={{ fontSize }}>
+        {/* Ink rather than white: this stretch of the scroll is a bright cream room
+            dissolving into the white haze, so light type would vanish. */}
+        <h2
+          className="font-heading font-semibold uppercase leading-none tracking-[0.28em] text-[#262521]"
+          style={{ textShadow: "0 2px 30px rgba(255,255,255,0.65)" }}
+        >
+          40 Years Later
+        </h2>
+        {/* Trailing letter-space sits after the final R, so trim one tracking
+            unit to land the rule on the last letter rather than past it. */}
+        <div className="mt-[0.55em] h-px" style={{ width: "calc(100% - 0.28em)" }}>
+          <motion.div
+            className="h-px w-full origin-left bg-[#262521]/60"
+            style={{ scaleX: ruleScale }}
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 function scrollToNext() {
   if (typeof window === "undefined") return;
   window.scrollTo({ top: window.innerHeight * 1.7, behavior: "smooth" });
@@ -170,6 +218,9 @@ function HeroMobile() {
               "radial-gradient(115% 115% at 50% 46%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.55) 45%, rgba(240,236,228,0.2) 80%, transparent 100%)",
           }}
         />
+
+        {/* Bridge line between the two scenes */}
+        <BridgeLine p={p} fontSize="clamp(0.9rem, 4.6vw, 1.5rem)" />
 
         {/* Headline group */}
         <motion.div
@@ -342,6 +393,9 @@ function HeroMotion() {
               "radial-gradient(115% 115% at 50% 46%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.55) 45%, rgba(240,236,228,0.2) 80%, transparent 100%)",
           }}
         />
+
+        {/* Bridge line between the two scenes */}
+        <BridgeLine p={p} fontSize="clamp(1.1rem, 2.8vw, 2.1rem)" />
 
         {/* Headline group — forms big in the clouds, then settles with sub-heading + CTA */}
         <motion.div
