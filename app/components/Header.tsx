@@ -43,6 +43,17 @@ export default function Header() {
   }, [isHome]);
 
   useEffect(() => {
+    // The trigger is mobile-only, so close the overlay if we cross into desktop.
+    if (!menuOpen) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (mq.matches) setMenuOpen(false);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [menuOpen]);
+
+  useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
@@ -97,7 +108,7 @@ export default function Header() {
           <button
             aria-label="Menu"
             onClick={() => setMenuOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
+            className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70 lg:hidden"
           >
             <Menu className="h-5 w-5" strokeWidth={1.75} />
           </button>

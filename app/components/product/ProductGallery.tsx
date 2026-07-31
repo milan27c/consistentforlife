@@ -25,7 +25,9 @@ export default function ProductGallery({
       </div>
 
       {images.length > 1 && (
-        <div className="mt-4 flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        // Padding (offset by negative margins) keeps the active ring + offset
+        // from being clipped by the horizontal scroll container.
+        <div className="-mx-1.5 mt-2.5 flex gap-3 overflow-x-auto p-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {images.map((img, i) => (
             <button
               key={img.src}
