@@ -66,6 +66,13 @@ export default function NewReleases() {
               sizes="(max-width: 768px) 110vw, 66vw"
               className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             />
+
+            {/* Scrim keeps the caption legible over both the bright and dark photography */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
+
+            <p className="absolute bottom-5 left-5 max-w-[85%] font-heading text-base font-semibold leading-snug text-white drop-shadow-sm sm:bottom-7 sm:left-7 sm:max-w-[70%] sm:text-xl lg:bottom-8 lg:left-8 lg:text-2xl">
+              {item.caption}
+            </p>
           </motion.article>
         ))}
       </div>
