@@ -116,11 +116,11 @@ function HeroMobile() {
   return (
     <section ref={ref} className="relative h-[340vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-ink">
-        {/* Scene 1 — mobilehero1 */}
+        {/* Scene 1 — newmobile1 */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/mobilehero1.png')",
+            backgroundImage: "url('/images/hero/newmobile1.png')",
             scale: scene1Scale,
             y: scene1Y,
             opacity: scene1Opacity,
@@ -137,11 +137,11 @@ function HeroMobile() {
           }}
         />
 
-        {/* Scene 2 — mobilehero2 */}
+        {/* Scene 2 — newmobile2 */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/mobilehero2.png')",
+            backgroundImage: "url('/images/hero/newmobile2.png')",
             scale: scene2Scale,
             opacity: scene2Opacity,
           }}
@@ -290,7 +290,7 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/pathum1.png')",
+            backgroundImage: "url('/images/hero/heronew1.png')",
             scale: scene1Scale,
             y: scene1Y,
             opacity: scene1Opacity,
@@ -311,18 +311,20 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/pathum3.png')",
+            backgroundImage: "url('/images/hero/heronew2.png')",
             scale: scene2Scale,
             opacity: scene2Opacity,
           }}
         />
-        {/* Legibility scrim for the settled headline */}
+        {/* Legibility scrim for the settled headline. Ramps in earlier than a plain
+            bottom fade: the headline settles over the family, who are lit and lightly
+            dressed, so white type needs the extra cover to hold up. */}
         <motion.div
           className="absolute inset-0"
           style={{
             opacity: scrimOpacity,
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 52%, rgba(0,0,0,0.7) 100%)",
+              "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 28%, rgba(0,0,0,0.18) 46%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%)",
           }}
         />
 
@@ -451,9 +453,9 @@ function HeroStatic() {
     <section className="relative h-[100svh] w-full overflow-hidden bg-ink">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero/pathum3.png')" }}
+        style={{ backgroundImage: "url('/images/hero/heronew2.png')" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/80" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
         <h1
           className="font-heading font-semibold leading-[0.95] tracking-tight text-white"
