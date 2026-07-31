@@ -72,17 +72,21 @@ export default function Header() {
         }`}
       >
         {/* Wordmark */}
-        <Link href="/" className="font-heading text-lg font-semibold tracking-tight">
+        <Link
+          href="/"
+          className="whitespace-nowrap font-heading text-[1.35rem]/[2.1rem] font-semibold tracking-tight"
+        >
           Consistent For Life
         </Link>
 
         {/* Nav links (desktop) */}
-        <nav className="hidden items-center gap-6 lg:flex xl:gap-9">
+        {/* Tighter gap at lg: the larger link text leaves little room beside the wordmark */}
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-9">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className={`whitespace-nowrap font-body text-sm font-semibold transition-opacity hover:opacity-70 ${
+              className={`whitespace-nowrap font-body text-[1.05rem]/6 font-semibold transition-opacity hover:opacity-70 ${
                 solid ? "text-neutral-700" : "text-white"
               }`}
             >
@@ -129,7 +133,7 @@ export default function Header() {
               <Link
                 href="/"
                 onClick={() => setMenuOpen(false)}
-                className="font-heading text-lg font-semibold tracking-tight"
+                className="font-heading text-[1.35rem]/[2.1rem] font-semibold tracking-tight"
               >
                 Consistent For Life
               </Link>
