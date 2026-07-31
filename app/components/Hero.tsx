@@ -6,6 +6,8 @@ import {
   useScroll,
   useSpring,
   useTransform,
+  useVelocity,
+  useMotionValueEvent,
   useReducedMotion,
   type MotionValue,
 } from "motion/react";
@@ -65,6 +67,16 @@ function BridgeLine({
      reads as a progress bar for this stretch of the scroll. */
   const ruleScale = useTransform(p, [0.19, 0.4], [0, 1]);
 
+  /* Scrolling down travels forward into the new home, scrolling back up returns
+     to the old one, so the wording flips to match the direction of travel. The
+     threshold keeps trackpad jitter from swapping the word mid-read. */
+  const velocity = useVelocity(p);
+  const [goingBack, setGoingBack] = useState(false);
+  useMotionValueEvent(velocity, "change", (v) => {
+    if (v > 0.02) setGoingBack(false);
+    else if (v < -0.02) setGoingBack(true);
+  });
+
   return (
     <motion.div
       className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6"
@@ -79,7 +91,7 @@ function BridgeLine({
           className="font-heading font-semibold uppercase leading-none tracking-[0.28em] text-[#262521]"
           style={{ textShadow: "0 2px 30px rgba(255,255,255,0.65)" }}
         >
-          40 Years Later
+          {goingBack ? "40 Years Ago" : "40 Years Later"}
         </h2>
         {/* Trailing letter-space sits after the final R, so trim one tracking
             unit to land the rule on the last letter rather than past it. */}
