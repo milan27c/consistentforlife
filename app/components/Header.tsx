@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { Search, ShoppingBag, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Consistent For Life", href: "/" },
@@ -102,12 +102,6 @@ export default function Header() {
             className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
           >
             <Search className="h-5 w-5" strokeWidth={1.75} />
-          </button>
-          <button
-            aria-label="Cart"
-            className="flex h-10 w-10 items-center justify-center rounded-full transition-opacity hover:opacity-70"
-          >
-            <ShoppingBag className="h-5 w-5" strokeWidth={1.75} />
           </button>
           <button
             aria-label="Menu"
