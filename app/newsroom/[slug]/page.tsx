@@ -58,7 +58,7 @@ export default async function NewsArticlePage({
             />
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-3xl bg-white p-6 sm:p-10 lg:p-14">
+          <div className="mt-6 overflow-hidden rounded-3xl p-6 sm:bg-white sm:p-10 lg:p-14">
             <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
               {item.heading}
             </h1>
