@@ -1,65 +1,34 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { NEWS } from "../lib/news";
+import NewsCard from "./news/NewsCard";
 
 export default function Newsletter() {
-  const reduce = useReducedMotion();
+  const items = NEWS.filter((item) => item.homeFeature).slice(0, 3);
 
   return (
-    <section
-      id="newsroom"
-      className="scroll-mt-20 bg-warm-grey px-6 py-20 sm:py-24 md:py-28 md:px-10 lg:px-16"
-    >
-      <h2 className="mb-10 text-center md:text-left font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
-        Latest News
-      </h2>
-
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:h-[560px] lg:grid-cols-4 lg:grid-rows-2">
-        {NEWS.map((item, i) => (
-          <motion.article
-            key={item.heading}
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: reduce ? 0 : i * 0.08 }}
-            className={`group relative overflow-hidden rounded-3xl bg-neutral-800 ${
-              item.large
-                ? "aspect-[4/3] sm:col-span-2 sm:aspect-[16/9] lg:col-span-2 lg:row-span-2 lg:aspect-auto lg:h-full"
-                : "aspect-[4/3] lg:aspect-auto lg:h-full"
-            }`}
+    <section id="newsroom" className="scroll-mt-20 bg-warm-grey py-20 sm:py-24 md:py-28">
+      <div className="section-px">
+        <div className="mb-10 flex flex-col items-center gap-4 md:flex-row md:items-end md:justify-between">
+          <h2 className="text-center font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-left lg:text-5xl">
+            Latest News
+          </h2>
+          <Link
+            href="/newsroom"
+            className="flex items-center gap-2 font-body text-sm font-semibold text-ink transition-opacity hover:opacity-70"
           >
-            <Image
-              src={item.image}
-              alt={item.heading}
-              fill
-              sizes={item.large ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 25vw"}
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-            />
-            <div
-              className={`absolute inset-0 bg-gradient-to-t to-transparent ${
-                item.large ? "from-black/85 via-black/30" : "from-black/80 via-black/20"
-              }`}
-            />
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-              <h3
-                className={`font-heading font-semibold leading-snug text-white ${
-                  item.large
-                    ? "text-xl sm:text-2xl lg:text-3xl"
-                    : "line-clamp-3 text-base sm:text-lg"
-                }`}
-              >
-                {item.heading}
-              </h3>
-              {item.sub && (
-                <p className="mt-3 hidden max-w-xl font-body text-sm leading-relaxed text-white/80 sm:block sm:text-base">
-                  {item.sub}
-                </p>
-              )}
-            </div>
-          </motion.article>
-        ))}
+            View all news
+            <ArrowRight className="h-4 w-4" strokeWidth={2} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item, i) => (
+            <NewsCard key={item.slug} item={item} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   );

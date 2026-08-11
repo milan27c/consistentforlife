@@ -67,7 +67,7 @@ export default function ProductStickyBar({
       aria-hidden={!visible}
     >
       {/* Name, price, buy now */}
-      <div className="flex items-center justify-between gap-4 px-6 py-3 md:px-10 lg:px-16">
+      <div className="section-px flex items-center justify-between gap-4 py-3">
         <p className="truncate font-body text-sm font-semibold text-ink sm:text-base">
           {name}
         </p>
@@ -82,7 +82,7 @@ export default function ProductStickyBar({
       </div>
 
       {/* Scroll spy tabs */}
-      <nav className="flex gap-7 overflow-x-auto px-6 md:px-10 lg:px-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <nav className="section-px flex gap-7 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {tabs.map((tab) => (
           <button
             key={tab.id}

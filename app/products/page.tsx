@@ -13,7 +13,7 @@ export default function ProductsPage() {
     <>
       <Header />
       <main className="flex-1 bg-warm-grey">
-        <div className="px-6 pb-16 pt-16 sm:pt-20 md:px-10 lg:px-16">
+        <div className="section-px pb-16 pt-16 sm:pt-20">
           <div className="mt-4 md:mt-0">
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Products" }]} />
           </div>

@@ -5,11 +5,8 @@ export default function Impact() {
   const projects = IMPACT_PROJECTS.slice(0, 3);
 
   return (
-    <section
-      id="impact"
-      className="bg-warm-grey px-6 py-20 sm:py-24 md:py-28 md:px-10 lg:px-16"
-    >
-      <div>
+    <section id="impact" className="bg-warm-grey py-20 sm:py-24 md:py-28">
+      <div className="section-px">
         {/* Header. The "view more" buttons are parked while /impact is hidden. */}
         <div className="mb-12 flex flex-col gap-6 text-center sm:text-left sm:flex-row sm:items-end sm:justify-between">
           <div>

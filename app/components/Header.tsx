@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "Our Impact", href: "/#impact" },
   { label: "Our Business", href: "/products" },
   { label: "Sustainability", href: "#" },
-  { label: "Newsroom", href: "/#newsroom" },
+  { label: "Newsroom", href: "/newsroom" },
   { label: "LG AI", href: "#" },
 ];
 
@@ -67,7 +67,7 @@ export default function Header() {
       }`}
     >
       <div
-        className={`flex items-center justify-between px-6 py-4 md:px-10 lg:px-16 ${
+        className={`section-px flex items-center justify-between py-4 ${
           solid ? "text-ink" : "text-white [text-shadow:0_1px_16px_rgba(0,0,0,0.35)]"
         }`}
       >
@@ -123,7 +123,7 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-[60] flex flex-col bg-surface text-ink"
           >
-            <div className="flex items-center justify-between px-6 py-4 md:px-10 lg:px-16">
+            <div className="section-px flex items-center justify-between py-4">
               <Link
                 href="/"
                 onClick={() => setMenuOpen(false)}

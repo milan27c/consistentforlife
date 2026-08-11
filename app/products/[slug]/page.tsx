@@ -69,7 +69,7 @@ export default async function ProductPage({
 
       <main className="flex-1 bg-warm-grey">
         {/* Hero: gallery + info */}
-        <section className="px-6 pb-16 pt-16 sm:pt-20 md:px-10 lg:px-16">
+        <section className="section-px pb-16 pt-16 sm:pt-20">
           <div className="mt-4 md:mt-0">
             <Breadcrumb
               items={[
@@ -153,7 +153,7 @@ export default async function ProductPage({
         <div id="hero-sentinel" />
 
         {/* Tabbed content */}
-        <div className="flex flex-col gap-20 px-6 py-16 md:px-10 lg:px-16">
+        <div className="section-px flex flex-col gap-20 py-16">
           <section id="features" className="scroll-mt-36">
             <FeaturesSection chips={product.featureChips} highlights={product.featureHighlights} />
             {product.category === "tv" && (

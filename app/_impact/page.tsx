@@ -17,7 +17,7 @@ export default function ImpactPage() {
       <Header />
       <main className="flex-1 bg-warm-grey">
         {/* Intro */}
-        <section className="px-6 pb-16 pt-12 sm:pt-16 md:px-10 lg:px-16">
+        <section className="section-px pb-16 pt-12 sm:pt-16">
           <div>
             <h1 className="max-w-3xl font-heading text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl">
               Consistency, felt beyond the home.
@@ -31,7 +31,7 @@ export default function ImpactPage() {
         </section>
 
         {/* All projects */}
-        <section className="px-6 pb-28 md:px-10 lg:px-16">
+        <section className="section-px pb-28">
           <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {IMPACT_PROJECTS.map((project, i) => (
               <ImpactCard key={project.title} project={project} index={i} />

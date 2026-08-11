@@ -45,56 +45,57 @@ const LEGAL_LINKS = ["Site map", "Privacy Policy", "Cookie Policy", "Cookie Sett
 export default function Footer() {
   return (
     <footer className="bg-[#E5E0D6]">
-
       {/* Link columns */}
-      <div className="grid grid-cols-2 gap-x-6 gap-y-10 border-b border-neutral-300 px-6 py-14 sm:grid-cols-3 md:px-10 lg:grid-cols-6 lg:px-16">
-        {COLUMNS.map((col) => (
-          <div key={col.heading}>
-            <h3
-              className={`font-heading text-base font-semibold ${
-                col.accent ? "text-secondary" : "text-ink"
-              }`}
-            >
-              {col.heading}
-            </h3>
-            <ul className="mt-4 space-y-2.5">
-              {col.links.map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
-                    className="font-body text-sm text-neutral-600 transition-colors hover:text-ink"
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
+      <div className="border-b border-neutral-300">
+        <div className="section-px grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:grid-cols-3 lg:grid-cols-6">
+          {COLUMNS.map((col) => (
+            <div key={col.heading}>
+              <h3
+                className={`font-heading text-base font-semibold ${
+                  col.accent ? "text-secondary" : "text-ink"
+                }`}
+              >
+                {col.heading}
+              </h3>
+              <ul className="mt-4 space-y-2.5">
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <a
+                      href="#"
+                      className="font-body text-sm text-neutral-600 transition-colors hover:text-ink"
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
 
-            {col.subheading && (
-              <>
-                <h3 className="mt-6 font-heading text-base font-semibold text-ink">
-                  {col.subheading}
-                </h3>
-                <ul className="mt-4 space-y-2.5">
-                  {col.subLinks?.map((link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
-                        className="font-body text-sm text-neutral-600 transition-colors hover:text-ink"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
-        ))}
+              {col.subheading && (
+                <>
+                  <h3 className="mt-6 font-heading text-base font-semibold text-ink">
+                    {col.subheading}
+                  </h3>
+                  <ul className="mt-4 space-y-2.5">
+                    {col.subLinks?.map((link) => (
+                      <li key={link}>
+                        <a
+                          href="#"
+                          className="font-body text-sm text-neutral-600 transition-colors hover:text-ink"
+                        >
+                          {link}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Language + social */}
-      <div className="flex flex-col gap-6 px-6 py-6 sm:flex-row sm:items-center sm:justify-between md:px-10 lg:px-16">
+      <div className="section-px flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-between">
         <a
           href="#"
           className="inline-flex items-center gap-2 font-body text-sm font-semibold text-neutral-600 underline underline-offset-2 transition-colors hover:text-ink"
@@ -111,21 +112,23 @@ export default function Footer() {
       </div>
 
       {/* Legal bar */}
-      <div className="border-t border-neutral-300 px-6 py-8 md:px-10 lg:px-16">
-        <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
-          <nav className="flex flex-wrap gap-x-2 gap-y-1 font-body text-xs text-neutral-600">
-            {LEGAL_LINKS.map((link, i) => (
-              <span key={link} className="flex items-center gap-2">
-                <a href="#" className="transition-colors hover:text-ink">
-                  {link}
-                </a>
-                {i < LEGAL_LINKS.length - 1 && <span className="text-neutral-400">|</span>}
-              </span>
-            ))}
-          </nav>
-          <p className="font-body text-xs text-neutral-600">
-            Copyright &copy; {new Date().getFullYear()} Consistent For Life. All Rights Reserved
-          </p>
+      <div className="border-t border-neutral-300">
+        <div className="section-px py-8">
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
+            <nav className="flex flex-wrap gap-x-2 gap-y-1 font-body text-xs text-neutral-600">
+              {LEGAL_LINKS.map((link, i) => (
+                <span key={link} className="flex items-center gap-2">
+                  <a href="#" className="transition-colors hover:text-ink">
+                    {link}
+                  </a>
+                  {i < LEGAL_LINKS.length - 1 && <span className="text-neutral-400">|</span>}
+                </span>
+              ))}
+            </nav>
+            <p className="font-body text-xs text-neutral-600">
+              Copyright &copy; {new Date().getFullYear()} Consistent For Life. All Rights Reserved
+            </p>
+          </div>
         </div>
       </div>
     </footer>

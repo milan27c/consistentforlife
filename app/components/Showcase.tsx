@@ -14,7 +14,7 @@ export default function Showcase() {
   return (
     <section id="showcase" className="bg-warm-grey py-20 sm:py-24 md:py-28">
       {/* Tabs */}
-      <div className="px-6 md:px-10 lg:px-16">
+      <div className="section-px">
         <div className="flex flex-wrap justify-center gap-7 pb-1 sm:gap-10 md:justify-start md:flex-nowrap md:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SHOWCASE.map((c, i) => (
             <button
@@ -46,14 +46,14 @@ export default function Showcase() {
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         {/* Heading */}
-        <div className="mt-10 px-6 text-center md:text-left md:px-10 lg:px-16">
+        <div className="section-px mt-10 text-center md:text-left">
           <h2 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
             {category.heading}
           </h2>
         </div>
 
         {/* Banner (within the page gutter, rounded) */}
-        <div className="mt-10 px-6 md:px-10 lg:px-16">
+        <div className="section-px mt-10">
           <div className="relative h-[55vh] overflow-hidden rounded-3xl sm:h-[65vh]">
             <Image
               src={category.banner}
@@ -76,7 +76,7 @@ export default function Showcase() {
         </div>
 
         {/* Products */}
-        <div className="mt-12 px-6 md:px-10 lg:px-16">
+        <div className="section-px mt-12">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {category.products.map((product) => {
               const mrp = Math.round(product.price * 1.3);

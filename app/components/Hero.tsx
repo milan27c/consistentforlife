@@ -176,11 +176,11 @@ function HeroMobile() {
   return (
     <section ref={ref} className="relative h-[340vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-ink">
-        {/* Scene 1 — newmobile1 */}
+        {/* Scene 1 — new1mobile */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/newmobile1.png')",
+            backgroundImage: "url('/images/newhero/new1mobile.png')",
             scale: scene1Scale,
             y: scene1Y,
             opacity: scene1Opacity,
@@ -197,11 +197,11 @@ function HeroMobile() {
           }}
         />
 
-        {/* Scene 2 — newmobile2 */}
+        {/* Scene 2 — new2mobile */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/newmobile2.png')",
+            backgroundImage: "url('/images/newhero/new2mobile.png')",
             scale: scene2Scale,
             opacity: scene2Opacity,
           }}
@@ -353,7 +353,7 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/heronew1.png')",
+            backgroundImage: "url('/images/newhero/new1.png')",
             scale: scene1Scale,
             y: scene1Y,
             opacity: scene1Opacity,
@@ -374,7 +374,7 @@ function HeroMotion() {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero/heronew2.png')",
+            backgroundImage: "url('/images/newhero/new2.png')",
             scale: scene2Scale,
             opacity: scene2Opacity,
           }}
@@ -519,7 +519,7 @@ function HeroStatic() {
     <section className="relative h-[100svh] w-full overflow-hidden bg-ink">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero/heronew2.png')" }}
+        style={{ backgroundImage: "url('/images/newhero/new2.png')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/80" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
