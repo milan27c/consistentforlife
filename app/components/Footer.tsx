@@ -114,8 +114,8 @@ export default function Footer() {
       {/* Legal bar */}
       <div className="border-t border-neutral-300">
         <div className="section-px py-8">
-          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
-            <nav className="flex flex-wrap gap-x-2 gap-y-1 font-body text-xs text-neutral-600">
+          <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-3 lg:items-center">
+            <nav className="flex flex-wrap justify-center gap-x-2 gap-y-1 font-body text-xs text-neutral-600 lg:justify-start">
               {LEGAL_LINKS.map((link, i) => (
                 <span key={link} className="flex items-center gap-2">
                   <a href="#" className="transition-colors hover:text-ink">
@@ -125,7 +125,18 @@ export default function Footer() {
                 </span>
               ))}
             </nav>
-            <p className="font-body text-xs text-neutral-600">
+            <div className="flex items-center gap-2 font-body text-sm text-neutral-500 lg:justify-self-center">
+              <span>Powered by</span>
+              <Image
+                src="/images/lgprimary.svg"
+                alt=""
+                aria-hidden="true"
+                width={77}
+                height={34}
+                className="h-6 w-auto"
+              />
+            </div>
+            <p className="font-body text-xs text-neutral-600 lg:justify-self-end">
               Copyright &copy; {new Date().getFullYear()} Consistent For Life. All Rights Reserved
             </p>
           </div>

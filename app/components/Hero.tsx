@@ -166,6 +166,13 @@ function HeroMobile() {
   const titleColor = useTransform(p, [0.6, 0.78], ["#262521", "#ffffff"]);
   const titleY = useTransform(p, [0.58, 0.9], ["0svh", "26svh"]);
 
+  /* --- Logo mark above the headline; inverts white in step with the title --- */
+  const logoInvert = useTransform(p, [0.6, 0.78], [0, 1]);
+  const logoFilter = useTransform([titleBlur, logoInvert], (v) => {
+    const [b, invert] = v as [number, number];
+    return `blur(${b}px) invert(${invert})`;
+  });
+
   /* --- Sub-heading + CTA */
   const metaOpacity = useTransform(p, [0.82, 0.95], [0, 1]);
   const metaY = useTransform(p, [0.82, 0.95], [26, 0]);
@@ -239,6 +246,17 @@ function HeroMobile() {
           className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
           style={{ y: titleY }}
         >
+          <motion.img
+            src="/images/lglogo.png"
+            alt=""
+            aria-hidden="true"
+            className="mb-4 w-20 select-none"
+            style={{
+              opacity: titleOpacity,
+              filter: logoFilter,
+              scale: titleScale,
+            }}
+          />
           <motion.h1
             className="font-heading font-semibold leading-[0.95] tracking-tight"
             style={{
@@ -339,6 +357,13 @@ function HeroMotion() {
   // Descends from centre so the settled headline group sits near the bottom.
   const titleY = useTransform(p, [0.58, 0.9], ["0svh", "26svh"]);
 
+  /* --- Logo mark above the headline; inverts white in step with the title --- */
+  const logoInvert = useTransform(p, [0.6, 0.78], [0, 1]);
+  const logoFilter = useTransform([titleBlur, logoInvert], (v) => {
+    const [b, invert] = v as [number, number];
+    return `blur(${b}px) invert(${invert})`;
+  });
+
   /* --- Sub-heading + CTA (settle just below the headline) -------- */
   const metaOpacity = useTransform(p, [0.82, 0.95], [0, 1]);
   const metaY = useTransform(p, [0.82, 0.95], [26, 0]);
@@ -414,6 +439,17 @@ function HeroMotion() {
           className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
           style={{ y: titleY }}
         >
+          <motion.img
+            src="/images/lglogo.png"
+            alt=""
+            aria-hidden="true"
+            className="mb-5 w-32 select-none sm:w-40"
+            style={{
+              opacity: titleOpacity,
+              filter: logoFilter,
+              scale: titleScale,
+            }}
+          />
           <motion.h1
             className="font-heading font-semibold leading-[0.95] tracking-tight"
             style={{
@@ -523,6 +559,13 @@ function HeroStatic() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/80" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
+        <img
+          src="/images/lglogo.png"
+          alt=""
+          aria-hidden="true"
+          className="w-32 select-none sm:w-40"
+          style={{ filter: "invert(1)" }}
+        />
         <h1
           className="font-heading font-semibold leading-[0.95] tracking-tight text-white"
           style={{ fontSize: "clamp(2rem, 5.2vw, 4rem)" }}
