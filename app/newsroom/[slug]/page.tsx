@@ -58,7 +58,7 @@ export default async function NewsArticlePage({
             />
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-3xl p-6 sm:bg-white sm:p-10 lg:p-14">
+          <div className="mt-6 overflow-hidden rounded-3xl sm:bg-white sm:p-10 lg:p-14">
             <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
               {item.heading}
             </h1>
@@ -140,7 +140,8 @@ export default async function NewsArticlePage({
                   href={`/newsroom/${nextItem.slug}`}
                   className="group flex max-w-[65%] items-center gap-3 text-right font-body text-sm font-semibold text-ink transition-opacity hover:opacity-70"
                 >
-                  <span className="line-clamp-1">{nextItem.heading}</span>
+                  <span className="line-clamp-1 sm:hidden">Next</span>
+                  <span className="hidden line-clamp-1 sm:inline">{nextItem.heading}</span>
                   <ArrowRight className="h-4 w-4 shrink-0" strokeWidth={2} />
                 </Link>
               </div>
