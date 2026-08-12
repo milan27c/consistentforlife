@@ -52,16 +52,18 @@ export default function SustainabilityBanner() {
           whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="absolute inset-y-0 left-0 hidden w-full max-w-[46%] flex-col justify-center px-10 text-left sm:flex lg:max-w-xl lg:px-14"
+          className="section-px absolute inset-y-0 left-0 hidden w-full items-center sm:flex"
         >
-          <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink lg:text-5xl">
-            Efficiency you can live with, consistently.
-          </h1>
-          <p className="mt-5 font-body text-sm leading-relaxed text-neutral-600 lg:max-w-md lg:text-lg">
-            Every product we build is measured against the same standard,
-            using less energy without asking you to live with less. Here is
-            what that looks like in your own home.
-          </p>
+          <div className="max-w-[46%] text-left lg:max-w-xl">
+            <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink lg:text-5xl">
+              Efficiency you can live with, consistently.
+            </h1>
+            <p className="mt-5 font-body text-sm leading-relaxed text-neutral-600 lg:max-w-md lg:text-lg">
+              Every product we build is measured against the same standard,
+              using less energy without asking you to live with less. Here is
+              what that looks like in your own home.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

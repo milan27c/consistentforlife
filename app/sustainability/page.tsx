@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import SustainabilityBanner from "../components/sustainability/SustainabilityBanner";
 import EnergyForecastSection from "../components/sustainability/EnergyForecastSection";
+import EWastePickupBanner from "../components/sustainability/EWastePickupBanner";
 
 export const metadata: Metadata = {
   title: "Sustainability",
@@ -19,6 +20,8 @@ export default function SustainabilityPage() {
         <SustainabilityBanner />
 
         <EnergyForecastSection />
+
+        <EWastePickupBanner />
       </main>
     </>
   );
