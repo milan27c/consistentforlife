@@ -9,21 +9,21 @@ const PEXELS = (id: number) =>
 
 export const IMPACT_PROJECTS: ImpactProject[] = [
   {
-    title: "Caring for Mothers, Building a Healthier Tomorrow",
+    title: "Healthier Mothers",
     blurb:
-      "We donated 25 refrigerators to rural maternal clinics, helping ensure reliable storage for essential medicines and better care for mothers and babies.",
+      "Reliable refrigeration means medicine and vaccines stay safe, so every clinic we reach can offer better care for a better tomorrow.",
     image: "/images/csr/1.png",
   },
   {
-    title: "Supporting Maternal Care with Everyday Comfort",
+    title: "Improved Hygiene",
     blurb:
-      "We donated washing machines to rural maternal clinics, helping maintain cleaner, safer, and more comfortable environments for mothers and newborns.",
+      "A working refrigerator keeps a clinic cleaner and safer too, giving every mother a more comfortable place to be cared for.",
     image: "/images/csr/2.png",
   },
   {
-    title: "Building Brighter Futures Through Education",
+    title: "Sustainable Support",
     blurb:
-      "By equipping rural school computer labs with monitors, we're helping students unlock new opportunities through digital education.",
+      "This is not a one time gift. It is a standing weekly delivery that keeps showing up, district by district, for the long term.",
     image: "/images/csr/3.png",
   },
   {

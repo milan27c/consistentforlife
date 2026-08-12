@@ -48,7 +48,7 @@ export default function NewReleases() {
         {/* Vertical stack on mobile, horizontal scroll on desktop */}
         <div
           ref={railRef}
-          className="flex flex-col gap-6 px-6 md:gap-6 md:overflow-x-auto md:pb-2 md:pl-10 md:pr-10 lg:pl-16 lg:pr-16 md:flex-row md:snap-x md:scroll-pl-10 md:scroll-pr-10 lg:scroll-pl-16 lg:scroll-pr-16 md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
+          className="flex flex-col gap-6 px-6 md:gap-6 md:overflow-x-auto md:overflow-y-hidden md:pb-2 md:pl-10 md:pr-10 lg:pl-16 lg:pr-16 md:flex-row md:snap-x md:scroll-pl-10 md:scroll-pr-10 lg:scroll-pl-16 lg:scroll-pr-16 md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden"
         >
           {NEW_RELEASES.map((item, i) => (
             <motion.article
@@ -71,9 +71,14 @@ export default function NewReleases() {
               {/* Scrim keeps the caption legible over both the bright and dark photography */}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
 
-              <p className="absolute bottom-5 left-5 max-w-[85%] font-heading text-base font-semibold leading-snug text-white drop-shadow-sm sm:bottom-7 sm:left-7 sm:max-w-[70%] sm:text-xl lg:bottom-8 lg:left-8 lg:text-2xl">
-                {item.caption}
-              </p>
+              <div className="absolute bottom-5 left-5 max-w-[85%] sm:bottom-7 sm:left-7 sm:max-w-[70%] lg:bottom-8 lg:left-8">
+                <p className="font-heading text-base font-semibold leading-snug text-white drop-shadow-sm sm:text-xl lg:text-2xl">
+                  {item.caption}
+                </p>
+                <p className="mt-1.5 max-w-md font-body text-sm leading-snug text-white/80 drop-shadow-sm sm:mt-2 sm:text-base">
+                  {item.description}
+                </p>
+              </div>
             </motion.article>
           ))}
         </div>

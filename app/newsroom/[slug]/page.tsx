@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Download, Share2 } from "lucide-react";
 import Header from "../../components/Header";
-import Breadcrumb from "../../components/Breadcrumb";
+import BreadcrumbBar from "../../components/BreadcrumbBar";
 import NewsCard from "../../components/news/NewsCard";
 import { NEWS, formatNewsDate, getNewsItem } from "../../lib/news";
 
@@ -46,19 +46,16 @@ export default async function NewsArticlePage({
   return (
     <>
       <Header />
+      <BreadcrumbBar
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Newsroom", href: "/newsroom" },
+          { label: item.category },
+        ]}
+      />
       <main className="flex-1 bg-warm-grey">
-        <article className="section-px pb-16 pt-16 sm:pt-20">
-          <div className="mt-4 md:mt-0">
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Newsroom", href: "/newsroom" },
-                { label: item.category },
-              ]}
-            />
-          </div>
-
-          <div className="mt-6 overflow-hidden rounded-3xl sm:bg-white sm:p-10 lg:p-14">
+        <article className="section-px pb-16 pt-8 sm:pt-10">
+          <div className="overflow-hidden rounded-3xl sm:bg-white sm:p-10 lg:p-14">
             <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
               {item.heading}
             </h1>

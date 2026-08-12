@@ -4,33 +4,32 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { SHOWCASE, lkr } from "../lib/showcase";
-import { slugForProduct } from "../lib/product";
+import { AI_PILLARS } from "../../lib/ai";
+import { lkr } from "../../lib/showcase";
+import { slugForProduct } from "../../lib/product";
 
-export default function Showcase() {
+export default function AiPillars() {
   const [active, setActive] = useState(0);
-  const category = SHOWCASE[active];
+  const pillar = AI_PILLARS[active];
 
   return (
-    <section id="showcase" className="bg-warm-grey py-20 sm:py-24 md:py-28">
+    <section id="pillars" className="scroll-mt-20 bg-warm-grey pb-20 pt-4 sm:pb-24 sm:pt-6 md:pb-28">
       {/* Tabs */}
       <div className="section-px">
         <div className="flex flex-wrap justify-center gap-7 pb-1 sm:gap-10 md:justify-start md:flex-nowrap md:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {SHOWCASE.map((c, i) => (
+          {AI_PILLARS.map((p, i) => (
             <button
-              key={c.tab}
+              key={p.tab}
               onClick={() => setActive(i)}
               className={`relative shrink-0 whitespace-nowrap pb-2 font-body text-lg font-medium transition-colors sm:text-xl ${
-                i === active
-                  ? "text-ink"
-                  : "text-neutral-400 hover:text-neutral-600"
+                i === active ? "text-ink" : "text-neutral-400 hover:text-neutral-600"
               }`}
             >
-              {c.tab}
+              {p.tab}
               {i === active && (
                 <motion.span
-                  layoutId="showcaseTabUnderline"
-                  className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-primary"
+                  layoutId="aiPillarTabUnderline"
+                  className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-secondary"
                 />
               )}
             </button>
@@ -38,46 +37,39 @@ export default function Showcase() {
         </div>
       </div>
 
-      {/* Per-tab content */}
+      {/* Per tab content */}
       <motion.div
         key={active}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        {/* Heading */}
         <div className="section-px mt-10 text-center md:text-left">
-          <h2 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
-            {category.heading}
-          </h2>
+          <h3 className="font-heading text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl lg:text-4xl">
+            {pillar.heading}
+          </h3>
+          <p className="mx-auto mt-3 max-w-2xl font-body text-sm leading-relaxed text-neutral-600 sm:text-base md:mx-0">
+            {pillar.body}
+          </p>
         </div>
 
-        {/* Banner (within the page gutter, rounded) */}
-        <div className="section-px mt-10">
-          <div className="relative h-[55vh] overflow-hidden rounded-3xl sm:h-[65vh]">
+        {/* Banner */}
+        <div className="section-px mt-8">
+          <div className="relative h-[45vh] overflow-hidden rounded-3xl sm:h-[55vh]">
             <Image
-              src={category.bannerMobile}
-              alt={category.tab}
+              src={pillar.banner}
+              alt={pillar.tab}
               fill
-              priority
               sizes="100vw"
-              className="object-cover sm:hidden"
-            />
-            <Image
-              src={category.banner}
-              alt={category.tab}
-              fill
-              priority
-              sizes="100vw"
-              className="hidden object-cover sm:block"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/25" />
             <div className="absolute inset-0 flex flex-col items-start justify-end p-8 sm:p-12">
               <p className="font-body text-xs font-semibold uppercase tracking-[0.35em] text-white/80">
-                {category.tab}
+                {pillar.tab}
               </p>
               <p className="mt-3 max-w-xl font-heading text-2xl font-semibold text-white sm:text-4xl">
-                {category.tagline}
+                {pillar.tagline}
               </p>
             </div>
           </div>
@@ -86,7 +78,7 @@ export default function Showcase() {
         {/* Products */}
         <div className="section-px mt-12">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-            {category.products.map((product) => {
+            {pillar.products.slice(0, 4).map((product) => {
               const mrp = Math.round(product.price * 1.3);
               const savings = mrp - product.price;
 
@@ -98,9 +90,12 @@ export default function Showcase() {
                         Coming Soon
                       </span>
                     )}
-                    <h3 className="font-heading text-sm font-semibold leading-snug text-ink line-clamp-2 min-h-[2.2rem]" title={product.name}>
+                    <h4
+                      className="font-heading text-sm font-semibold leading-snug text-ink line-clamp-2 min-h-[2.2rem]"
+                      title={product.name}
+                    >
                       {product.name}
-                    </h3>
+                    </h4>
                   </div>
 
                   <div className="relative aspect-[4/3] overflow-hidden bg-white px-4">

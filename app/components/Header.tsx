@@ -7,12 +7,12 @@ import { AnimatePresence, motion } from "motion/react";
 import { Search, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Consistent For Life", href: "/" },
-  { label: "Our Impact", href: "/#impact" },
+  { label: "Home", href: "/" },
+  { label: "Our Impact", href: "/impact" },
   { label: "Our Business", href: "/products" },
-  { label: "Sustainability", href: "#" },
+  { label: "Sustainability", href: "/sustainability" },
   { label: "Newsroom", href: "/newsroom" },
-  { label: "LG AI", href: "#" },
+  { label: "LG AI", href: "/ai" },
 ];
 
 export default function Header() {

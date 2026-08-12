@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Header from "../../components/Header";
-import Breadcrumb from "../../components/Breadcrumb";
+import BreadcrumbBar from "../../components/BreadcrumbBar";
 import ProductGallery from "../../components/product/ProductGallery";
 import ProductStickyBar, { type ProductTab } from "../../components/product/ProductStickyBar";
 import { StarRow } from "../../components/product/StarRow";
@@ -60,6 +60,13 @@ export default async function ProductPage({
   return (
     <>
       <Header />
+      <BreadcrumbBar
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Products", href: "/products" },
+          { label: product.breadcrumbLabel },
+        ]}
+      />
       <ProductStickyBar
         name={product.name}
         price={product.price}
@@ -69,18 +76,8 @@ export default async function ProductPage({
 
       <main className="flex-1 bg-warm-grey">
         {/* Hero: gallery + info */}
-        <section className="section-px pb-16 pt-16 sm:pt-20">
-          <div className="mt-4 md:mt-0">
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Products", href: "/products" },
-                { label: product.breadcrumbLabel },
-              ]}
-            />
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+        <section className="section-px pb-16 pt-8 sm:pt-10">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
             <ProductGallery images={product.images} />
 
             <div>
