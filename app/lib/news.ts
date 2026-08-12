@@ -297,7 +297,7 @@ export const NEWS: NewsItem[] = [
     ],
     category: "Product Launch",
     date: "2026-08-10",
-    image: "/images/news/outdoor-party-speaker-launch.png",
+    image: "/images/news/outdoor-party-speaker-launch-new.png",
   },
   {
     slug: "linearcooling-ai-gourmet-dinner-ideas",
