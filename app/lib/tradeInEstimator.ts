@@ -1,6 +1,6 @@
 import { SHOWCASE } from "./showcase";
 
-export type ProductTypeKey = "tv" | "appliances" | "audio" | "ac" | "computing";
+export type ProductTypeKey = "tv" | "ac" | "refrigerator" | "washer" | "microwave" | "dishwasher";
 
 type ProductType = {
   key: ProductTypeKey;
@@ -12,10 +12,11 @@ type ProductType = {
 
 export const PRODUCT_TYPES: ProductType[] = [
   { key: "tv", label: "Television", category: "TV", avgLifespanYears: 7, repairCostShare: [0.15, 0.3] },
-  { key: "appliances", label: "Major appliance", category: "Appliances", avgLifespanYears: 10, repairCostShare: [0.1, 0.25] },
-  { key: "audio", label: "Audio system", category: "Audio", avgLifespanYears: 6, repairCostShare: [0.15, 0.35] },
-  { key: "ac", label: "Air conditioner", category: "Air Conditioning", avgLifespanYears: 8, repairCostShare: [0.12, 0.28] },
-  { key: "computing", label: "Monitor", category: "Computing", avgLifespanYears: 6, repairCostShare: [0.15, 0.3] },
+  { key: "ac", label: "Air Conditioner", category: "Air Conditioning", avgLifespanYears: 8, repairCostShare: [0.12, 0.28] },
+  { key: "refrigerator", label: "Refrigerator", category: "Appliances", avgLifespanYears: 12, repairCostShare: [0.1, 0.25] },
+  { key: "washer", label: "Washing Machine", category: "Appliances", avgLifespanYears: 10, repairCostShare: [0.12, 0.3] },
+  { key: "microwave", label: "Microwave Oven", category: "Appliances", avgLifespanYears: 8, repairCostShare: [0.2, 0.4] },
+  { key: "dishwasher", label: "Dishwasher", category: "Appliances", avgLifespanYears: 10, repairCostShare: [0.15, 0.3] },
 ];
 
 export type AgeKey = "new" | "mid" | "aging" | "old";

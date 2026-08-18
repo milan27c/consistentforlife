@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Header from "../components/Header";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import ActionPlanSection from "../components/impact/ActionPlanSection";
+import GallerySection from "../components/impact/GallerySection";
 import ImpactCard from "../components/ImpactCard";
 import { IMPACT_PROJECTS } from "../lib/impact";
 
@@ -33,6 +34,8 @@ export default function ImpactPage() {
         </section>
 
         <ActionPlanSection />
+
+        <GallerySection />
 
         {/* The program, in detail */}
         <section className="section-px pb-28">

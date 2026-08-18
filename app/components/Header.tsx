@@ -24,9 +24,13 @@ export default function Header() {
     // Non-home pages have no dark hero, so the header stays solid (initial state).
     if (!isHome) return;
     const onScroll = () => {
-      // Hero is the sticky scroll track; the Impact section starts right after it.
+      // Hero is the sticky scroll track; the deliveries gallery (or, failing
+      // that, the Impact section) starts right after it and isn't dark, so
+      // the header needs to go solid as soon as that section begins.
       const heroEnd =
-        document.getElementById("impact")?.offsetTop ?? window.innerHeight * 3;
+        document.getElementById("deliveries")?.offsetTop ??
+        document.getElementById("impact")?.offsetTop ??
+        window.innerHeight * 3;
       setSolid(window.scrollY > heroEnd - 72);
     };
     window.addEventListener("scroll", onScroll, { passive: true });

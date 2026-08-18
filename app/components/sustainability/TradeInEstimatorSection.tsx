@@ -5,10 +5,11 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   ArrowRight,
   CheckCircle2,
-  Monitor,
+  Microwave,
   Refrigerator,
-  Speaker,
   Tv,
+  UtensilsCrossed,
+  WashingMachine,
   Wind,
   Wrench,
 } from "lucide-react";
@@ -26,10 +27,11 @@ type Status = "idle" | "processing" | "done";
 
 const PRODUCT_ICONS: Record<ProductTypeKey, typeof Tv> = {
   tv: Tv,
-  appliances: Refrigerator,
-  audio: Speaker,
   ac: Wind,
-  computing: Monitor,
+  refrigerator: Refrigerator,
+  washer: WashingMachine,
+  microwave: Microwave,
+  dishwasher: UtensilsCrossed,
 };
 
 const PROCESSING_STEPS = [
@@ -46,7 +48,7 @@ const VERDICT_STYLES: Record<EstimatorResult["verdict"], { badge: string; banner
 export default function TradeInEstimatorSection() {
   const reduce = useReducedMotion();
   const [productKey, setProductKey] = useState<ProductTypeKey>("tv");
-  const [ageKey, setAgeKey] = useState<AgeKey>("mid");
+  const [ageKey, setAgeKey] = useState<AgeKey>("old");
   const [status, setStatus] = useState<Status>("idle");
   const [result, setResult] = useState<EstimatorResult | null>(null);
 
