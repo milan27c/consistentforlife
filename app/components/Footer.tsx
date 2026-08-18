@@ -4,39 +4,50 @@ import Image from "next/image";
 import Link from "next/link";
 import { Globe } from "lucide-react";
 
+type FooterLink = { label: string; href: string };
+
 type FooterColumn = {
   heading: string;
   accent?: boolean;
-  links: string[];
+  links: FooterLink[];
   subheading?: string;
-  subLinks?: string[];
+  subLinks?: FooterLink[];
 };
 
 const COLUMNS: FooterColumn[] = [
   {
     heading: "About Us",
-    links: ["Our story", "Company history", "Careers"],
-  },
-  {
-    heading: "Shop",
-    links: ["All products", "New releases", "Featured products", "Categories"],
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Our Impact", href: "/impact" },
+      { label: "Sustainability", href: "/sustainability" },
+      { label: "Our AI", href: "/ai" },
+    ],
   },
   {
     heading: "Support",
-    links: ["Contact us", "Help center", "Product manuals", "Warranty info"],
+    links: [
+      { label: "Contact us", href: "#" },
+      { label: "Help center", href: "#" },
+      { label: "Product manuals", href: "#" },
+      { label: "Warranty info", href: "#" },
+    ],
   },
   {
     heading: "Our Identity",
-    links: ["Logo & wordmark", "Color & gradient", "Photography", "Typography"],
+    links: [
+      { label: "Logo & wordmark", href: "#" },
+      { label: "Color & gradient", href: "#" },
+      { label: "Photography", href: "#" },
+      { label: "Typography", href: "#" },
+    ],
   },
   {
     heading: "Newsroom",
-    links: ["Press releases", "Media kit"],
-  },
-  {
-    heading: "AI Features",
-    accent: true,
-    links: ["AI Picture Engine", "Smart Home Intelligence", "Adaptive Sound Stage", "Next Gen Processor"],
+    links: [
+      { label: "Press releases", href: "#" },
+      { label: "Media kit", href: "#" },
+    ],
   },
 ];
 
@@ -47,7 +58,7 @@ export default function Footer() {
     <footer className="bg-[#E5E0D6]">
       {/* Link columns */}
       <div className="border-b border-neutral-300">
-        <div className="section-px grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="section-px grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:grid-cols-4">
           {COLUMNS.map((col) => (
             <div key={col.heading}>
               <h3
@@ -59,13 +70,13 @@ export default function Footer() {
               </h3>
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="font-body text-sm text-neutral-600 transition-colors hover:text-ink"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -77,13 +88,13 @@ export default function Footer() {
                   </h3>
                   <ul className="mt-4 space-y-2.5">
                     {col.subLinks?.map((link) => (
-                      <li key={link}>
-                        <a
-                          href="#"
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
                           className="font-body text-sm text-neutral-600 transition-colors hover:text-ink"
                         >
-                          {link}
-                        </a>
+                          {link.label}
+                        </Link>
                       </li>
                     ))}
                   </ul>

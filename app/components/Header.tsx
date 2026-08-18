@@ -9,10 +9,8 @@ import { Search, Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Our Impact", href: "/impact" },
-  { label: "Our Business", href: "/products" },
   { label: "Sustainability", href: "/sustainability" },
   { label: "Newsroom", href: "/newsroom" },
-  { label: "LG AI", href: "/ai" },
 ];
 
 export default function Header() {

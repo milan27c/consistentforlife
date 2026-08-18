@@ -1,8 +1,8 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import NewReleases from "./components/NewReleases";
-import FeaturedProducts from "./components/FeaturedProducts";
-import Showcase from "./components/Showcase";
+// import NewReleases from "./components/NewReleases";
+// import FeaturedProducts from "./components/FeaturedProducts";
+// import Showcase from "./components/Showcase";
 import Impact from "./components/Impact";
 import Newsletter from "./components/Newsletter";
 
@@ -17,14 +17,14 @@ export default function Home() {
         {/* Our Impact — community projects */}
         <Impact />
 
-        {/* New releases */}
-        <NewReleases />
+        {/* New releases — hidden for now */}
+        {/* <NewReleases /> */}
 
-        {/* Featured products rail */}
-        <FeaturedProducts />
+        {/* Featured products rail — hidden for now */}
+        {/* <FeaturedProducts /> */}
 
-        {/* Category showcase with tabs */}
-        <Showcase />
+        {/* Category showcase with tabs — hidden for now */}
+        {/* <Showcase /> */}
 
         {/* Latest news, bento grid */}
         <Newsletter />

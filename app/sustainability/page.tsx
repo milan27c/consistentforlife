@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Header from "../components/Header";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import SustainabilityBanner from "../components/sustainability/SustainabilityBanner";
-import EnergyForecastSection from "../components/sustainability/EnergyForecastSection";
+// import EnergyForecastSection from "../components/sustainability/EnergyForecastSection";
+import RecycleCycleSection from "../components/sustainability/RecycleCycleSection";
 import EWastePickupBanner from "../components/sustainability/EWastePickupBanner";
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function SustainabilityPage() {
       <main className="flex-1 bg-warm-grey">
         <SustainabilityBanner />
 
-        <EnergyForecastSection />
+        {/* <EnergyForecastSection /> */}
+
+        <RecycleCycleSection />
 
         <EWastePickupBanner />
       </main>
