@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { formatFullDate, getPlanWithStatus, todayISO } from "../../lib/donationPlan";
 
@@ -35,9 +36,10 @@ export default function LatestDeliveriesSection() {
         </div>
         <Link
           href="/impact"
-          className="inline-flex shrink-0 items-center justify-center rounded-full border border-ink px-6 py-3 font-body text-sm font-semibold text-ink transition-colors duration-300 hover:bg-ink hover:text-white"
+          className="inline-flex shrink-0 items-center gap-2 font-body text-sm font-semibold text-ink transition-opacity hover:opacity-70"
         >
           See full project progress
+          <ArrowRight className="h-4 w-4" strokeWidth={2} />
         </Link>
       </div>
 
