@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { formatFullDate, getPlanWithStatus, todayISO } from "../../lib/donationPlan";
 
@@ -22,14 +24,23 @@ export default function LatestDeliveriesSection() {
 
   return (
     <section id="deliveries" className="section-px py-16 sm:py-20">
-      <div className="mb-10 text-center">
-        <h2 className="mx-auto max-w-2xl font-heading text-3xl font-semibold leading-tight tracking-tight text-ink lg:text-5xl">
-          Delivered, right on schedule.
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl font-body text-base leading-relaxed text-neutral-600">
-          The three most recent refrigerators to reach a clinic, each one part
-          of the same standing promise.
-        </p>
+      <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="text-left">
+          <h2 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-ink lg:text-5xl">
+            Ongoing Projects.
+          </h2>
+          <p className="mt-4 max-w-xl font-body text-base leading-relaxed text-neutral-600">
+            The three most recent refrigerators to reach a clinic, each one part
+            of the same standing promise.
+          </p>
+        </div>
+        <Link
+          href="/impact"
+          className="inline-flex shrink-0 items-center gap-2 font-body text-sm font-semibold text-ink transition-opacity hover:opacity-70"
+        >
+          See full project progress
+          <ArrowRight className="h-4 w-4" strokeWidth={2} />
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">

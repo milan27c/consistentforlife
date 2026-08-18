@@ -284,7 +284,7 @@ function HeroMobile() {
             className="pointer-events-auto mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-body text-xs font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.03] hover:bg-[#8c002c]"
             style={{ opacity: metaOpacity, y: metaY }}
           >
-            Explore Products
+            Explore Projects
             <ArrowRight />
           </motion.a>
         </motion.div>
@@ -478,7 +478,7 @@ function HeroMotion() {
             className="pointer-events-auto mt-8 inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 font-body text-sm font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.03] hover:bg-[#8c002c]"
             style={{ opacity: metaOpacity, y: metaY }}
           >
-            Explore Products
+            Explore Projects
             <ArrowRight />
           </motion.a>
         </motion.div>
@@ -580,7 +580,7 @@ function HeroStatic() {
           href="#products"
           className="inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 font-body text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#8c002c]"
         >
-          Explore Products
+          Explore Projects
           <ArrowRight />
         </a>
       </div>
