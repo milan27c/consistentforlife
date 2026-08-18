@@ -5,6 +5,7 @@ import SustainabilityBanner from "../components/sustainability/SustainabilityBan
 // import EnergyForecastSection from "../components/sustainability/EnergyForecastSection";
 import RecycleCycleSection from "../components/sustainability/RecycleCycleSection";
 import EWastePickupBanner from "../components/sustainability/EWastePickupBanner";
+import TradeInEstimatorSection from "../components/sustainability/TradeInEstimatorSection";
 
 export const metadata: Metadata = {
   title: "Sustainability",
@@ -19,6 +20,8 @@ export default function SustainabilityPage() {
       <BreadcrumbBar items={[{ label: "Home", href: "/" }, { label: "Sustainability" }]} />
       <main className="flex-1 bg-warm-grey">
         <SustainabilityBanner />
+
+        <TradeInEstimatorSection />
 
         {/* <EnergyForecastSection /> */}
 

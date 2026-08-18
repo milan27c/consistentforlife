@@ -8,7 +8,7 @@ export default function EWastePickupBanner() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="section-px mb-16 w-full sm:mb-24">
+    <section id="ewaste-pickup" className="section-px mb-16 w-full scroll-mt-20 sm:mb-24">
       <div className="relative aspect-[3/5] overflow-hidden rounded-3xl sm:aspect-[4/3] lg:aspect-[3/1]">
         <Image
           src="/images/sustainability/wastemobile.png"
